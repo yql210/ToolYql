@@ -2,7 +2,13 @@ from huggingface_hub import snapshot_download
 # snapshot_download(repo_id="THUDM/chatglm3-6b", local_dir="E:\\a_search\\github\\download\\THUDM\\chatglm3-6b")
 
 
-snapshot_download(repo_id="HuggingFaceH4/zephyr-7b-beta")
+
+# snapshot_download(repo_id="selfrag/selfrag_llama2_7b")
+snapshot_download(repo_id="Aman/selfrag-zh_baichuan2_7b_chat")
+
+
+
+# snapshot_download(repo_id="HuggingFaceH4/zephyr-7b-beta")
 
 
 # snapshot_download(repo_id="xverse/XVERSE-13B-Chat")
