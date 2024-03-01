@@ -48,11 +48,15 @@ def main():
     file_test_save_path_no_prompt = './SpCQLFromGlm4/test_filt_tran_no_prompt.json'
     file_train_save_path_no_prompt = './SpCQLFromGlm4/train_filt_tran_no_prompt.json'
 
+    file_dev_save_path_no_prompt_no_kg = './SpCQLFromGlm4/dev_filt_tran_no_prompt_no_kg.json'
+    file_test_save_path_no_prompt_no_kg = './SpCQLFromGlm4/test_filt_tran_no_prompt_no_kg.json'
+    file_train_save_path_no_prompt_no_kg = './SpCQLFromGlm4/train_filt_tran_no_prompt_no_kg.json'
+
     # datas = read_large_json(file_dev_path)
     # datas = read_large_json(file_test_path)
     datas = read_large_json(file_train_path)
 
-    file_save_path = file_train_save_path_no_prompt
+    file_save_path = file_train_save_path_no_prompt_no_kg
 
     index = 0
     index1 = 0
@@ -105,9 +109,11 @@ def main():
         #                    "\n知识：" + str(data['answer'])
         #            )
 
-        message = ("问题：" + data['query'] +
-                           "\n知识：" + str(data['answer'])
-                   )
+        # message = ("问题：" + data['query'] +
+        #                    "\n知识：" + str(data['answer'])
+        #            )
+
+        message = data['query']
 
         conversation = {
                     "conversations":
