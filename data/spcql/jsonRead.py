@@ -25,16 +25,54 @@ def main():
     file_test_path = './SpCQL/test.json'
     file_train_path = './SpCQL/train.json'
 
-    # large_data = read_large_json(file_path)
-    data_dev = load_json(file_dev_path)
-    # data_test = load_json(file_test_path)
-    # data_train = load_json(file_train_path)
+    file_dev_save_path = './SpCQL/dev_save.json'
+    file_test_save_path = './SpCQL/test_save.json'
+    file_train_save_path = './SpCQL/train_save.json'
 
-    for data in data_dev:
-        print(data['query'], end="  -->  ")
-        print(data['cypher'], end="  -->  ")
-        print(data['answer'], end="  -->  ")
+    # large_data = read_large_json(file_path)
+    # data_dev = load_json(file_dev_path)
+    data_test = load_json(file_test_path)
+    data_train = load_json(file_train_path)
+
+    i = 0
+    index = 0
+    index1 = 0
+    items = []
+
+    for data in data_train:
+        # print(data['query'], end="  -->  ")
+        # print(data['cypher'], end="  -->  ")
+        # print(data['answer'], end="  -->  ")
+
+        print(data['query'])
+        print(data['cypher'])
+        print(data['answer'])
         print()
+
+
+    #     data['glm-4-answer'] = str(i)
+    #     i += 1
+    #
+    #     data = json.dumps(data, ensure_ascii=False)
+    #     items.append(data)
+    #
+    #     index += 1
+    #     index1 += 1
+    #
+    #     if index == 10:
+    #         break
+    #
+    #     if index == 5000:
+    #         store_json_per_line(items, file_dev_save_path)
+    #         index = 0
+    #         items = []
+    #         print("--------------" + str(index1) + "----------------")
+    #
+    # store_json_per_line(items, file_dev_save_path)
+    # print("--------------" + str(index1) + "----------------")
+    # print(index1)
+
+
 
     print("----------end-------------------")
 
