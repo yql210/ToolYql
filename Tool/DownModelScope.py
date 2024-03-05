@@ -20,17 +20,24 @@ from modelscope.hub.snapshot_download import snapshot_download
 
 # ---------------------------linux------------------------------------------
 
-model_dir = snapshot_download('shakechen/Llama-2-7b-hf', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('shakechen/Llama-2-13b', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('shakechen/Llama-2-7b-hf', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('shakechen/Llama-2-13b', cache_dir='/data/yuanql/model/modelscope', revision='master')
+#
+#
+# model_dir = snapshot_download('modelscope/Llama-2-7b-ms', cache_dir='/data/yuanql/model/modelscope', revision='v1.0.2')
+# model_dir = snapshot_download('modelscope/Llama-2-13b-ms', cache_dir='/data/yuanql/model/modelscope', revision='v1.0.2')
+# model_dir = snapshot_download('modelscope/Llama-2-7b-chat-ms', cache_dir='/data/yuanql/model/modelscope', revision='v1.0.5')
+# model_dir = snapshot_download('modelscope/Llama-2-13b-chat-ms', cache_dir='/data/yuanql/model/modelscope', revision='v1.0.2')
+#
+# model_dir = snapshot_download('TabbyML/Mistral-7B', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('AI-ModelScope/Mixtral-8x7B-Instruct-v0.1', cache_dir='/data/yuanql/model/modelscope', revision='master')
 
-
-model_dir = snapshot_download('modelscope/Llama-2-7b-ms', cache_dir='/data/yuanql/model/modelscope', revision='v1.0.2')
-model_dir = snapshot_download('modelscope/Llama-2-13b-ms', cache_dir='/data/yuanql/model/modelscope', revision='v1.0.2')
-model_dir = snapshot_download('modelscope/Llama-2-7b-chat-ms', cache_dir='/data/yuanql/model/modelscope', revision='v1.0.5')
-model_dir = snapshot_download('modelscope/Llama-2-13b-chat-ms', cache_dir='/data/yuanql/model/modelscope', revision='v1.0.2')
-
-model_dir = snapshot_download('TabbyML/Mistral-7B', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('AI-ModelScope/Mixtral-8x7B-Instruct-v0.1', cache_dir='/data/yuanql/model/modelscope', revision='master')
+model_dir = snapshot_download('AI-ModelScope/chinese-llama-2-1.3b', cache_dir='/data/yuanql/model/modelscope', revision='master')
+model_dir = snapshot_download('AI-ModelScope/chinese-alpaca-2-1.3b', cache_dir='/data/yuanql/model/modelscope', revision='master')
+model_dir = snapshot_download('qwen/Qwen-1_8B', cache_dir='/data/yuanql/model/modelscope', revision='master')
+model_dir = snapshot_download('qwen/Qwen-1_8B-Chat', cache_dir='/data/yuanql/model/modelscope', revision='master')
+model_dir = snapshot_download('qwen/Qwen1.5-4B', cache_dir='/data/yuanql/model/modelscope', revision='master')
+model_dir = snapshot_download('qwen/Qwen1.5-4B-Chat', cache_dir='/data/yuanql/model/modelscope', revision='master')
 
 # model_dir = snapshot_download('', cache_dir='D:\\a_search\\download\\modelscope', revision='v1.0.3')
 

@@ -40,13 +40,13 @@ def main():
     items = []
 
     for data in data_train:
-        # print(data['query'], end="  -->  ")
-        # print(data['cypher'], end="  -->  ")
-        # print(data['answer'], end="  -->  ")
+        print(data['query'], end="  -->  ")
+        print(data['cypher'], end="  -->  ")
+        print(data['answer'], end="  -->  ")
 
-        print(data['query'])
-        print(data['cypher'])
-        print(data['answer'])
+        # print(data['query'])
+        # print(data['cypher'])
+        # print(data['answer'])
         print()
 
 

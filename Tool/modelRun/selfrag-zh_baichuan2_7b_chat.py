@@ -10,6 +10,9 @@ def format_prompt(input, paragraph=None):
     prompt = "### Instruction:\n{0}\n\n### Response:\n".format(input)
     if paragraph is not None:
         prompt += "[Retrieval]<paragraph>{0}</paragraph>".format(paragraph)
+
+    print(prompt)
+
     return prompt
 
 query_1 = "你好"
@@ -17,7 +20,8 @@ query_2 = "世界最高的山峰是什么？"
 query_3 = "周杰伦演唱的歌曲那些？"
 query_11 = "Leave odd one out: twitter, instagram, whatsapp."
 query_22 = "Can you tell me the difference between llamas and alpacas?"
-queries = [query_1, query_2, query_3, query_11, query_22]
+query_33 = "列举出鲁迅的一个别名可以吗？"
+queries = [query_1, query_2, query_3, query_11, query_22, query_33]
 
 preds = model.generate([format_prompt(query) for query in queries], sampling_params)
 for pred in preds:
@@ -27,5 +31,14 @@ for pred in preds:
 # Model prediction: 周杰伦是一位著名的华语流行歌手兼词曲创作者2000年代初开始发片2003年初初成名2000年代初开始发片2003年初初成名2007年获得全球华语音乐榜中榜最佳男歌手2010年获得MTV全球华语音乐盛典最佳男歌手2017年获得华语音乐盛典终身成就奖2019年获得KBS全球华语音乐盛典终身成就奖2021年获得Q Music
 # Model prediction: Whatsapp odd one out because it is not a social media platform like twitter or instagram but a messaging app used worldwide for communication purposes alone instead of being a platform where users share content like photos or status updates like instagram or tweets do instead of being a platform where users communicate via text message like whatsapp instead of being a platform where users communicate via voice message like whatsapp instead of being a platform where users communicate via video message like whatsapp instead of being a platform where users
 # Model prediction: Llamas vs Alpaca: Difference Between Lambs vs Alpaca Wool Fibers [Video] [12:25] [12:25] [12:25] [12:25] [12:25] [12:25] [12:25] [12:25] [12:25] [12:25] [12:25] [12
+
+
+# generate with retrieved passage
+print("-------------# generate with retrieved passage--------------")
+prompt = format_prompt("列举出鲁迅的一个别名可以吗？", paragraph="周树人")
+preds = model.generate([prompt], sampling_params)
+print([pred.outputs[0].text for pred in preds])
+# ['[Relevant]Alpacas are considerably smaller than llamas, and unlike llamas, they were not bred to be working animals, but were bred specifically for their fiber.[Fully supported][Utility:5]</s>']
+
 
 print("end")
