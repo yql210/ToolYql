@@ -233,7 +233,7 @@ def main():
     input_path = args.input_file
     print(input_path)
     if input_path.endswith(".json") or ".json_" in input_path:
-        input_data = json.load(open(input_path))
+        input_data = json.load(open(input_path, encoding="utf-8"))
     else:
         input_data = load_jsonlines(input_path)
 
@@ -249,6 +249,16 @@ def main():
     preds = [] if prev_results is None else prev_results["preds"]
     predicted_results = []
     # main loop
+
+    # 检查目录是否存在，如果不存在则创建目录
+    directory = os.path.dirname(args.result_fp)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # 统计模型输入为"Retrieval]" 的个数
+    sum_Retrieval_code = 0
+    sum_All = 0
+
     if args.split == "train":
         correct, total = 0, 0
     for idx in tqdm(range(len(input_data) // args.batch_size)):
@@ -265,7 +275,17 @@ def main():
                 print(len(batch))
                 print(j)
                 continue
+
+            sum_All += 1
+
+
             pred = preds[j]
+
+            if args.input_mode == "retrieval_input":
+                pred = '[Retrieval]' # TODO: 强制将模型输出修改为默认检索
+                if preds[j] == "No Retrieval]":
+                    sum_Retrieval_code += 1
+
             item["pred"] = pred
             if args.split == "train":
                 item["output"] = posprocess_output[j]
@@ -277,7 +297,7 @@ def main():
                     item["correct"] = 0.0
             predicted_results.append(copy.deepcopy(item))
         with open(args.result_fp + "_tmp", "w") as outfile:
-            json.dump(predicted_results, outfile)
+            json.dump(predicted_results, outfile, ensure_ascii=False)
 
     if len(input_data) % args.batch_size > 0:
         batch = input_data[(idx+1)*args.batch_size:]
@@ -303,8 +323,11 @@ def main():
         print(np.mean([item["correct"]
               for item in input_data if item["pred"] != ""]))
 
-    with open(args.result_fp, "w") as outfile:
-        json.dump(predicted_results, outfile)
+    with open(args.result_fp, "w", encoding="utf-8") as outfile:
+        json.dump(predicted_results, outfile, ensure_ascii=False)
+
+    # 统计数据正确率参数
+    print(str(sum_Retrieval_code / sum_All) + " (" + str(sum_Retrieval_code) + " / " + str(sum_All) + ")")
 
 
 if __name__ == "__main__":
