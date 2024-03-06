@@ -11,6 +11,8 @@ import argparse
 from tqdm import tqdm
 import jsonlines
 from vllm import LLM, SamplingParams
+import sys
+
 
 ALPACA_PROMPT_DICT = {
     "prompt_input": (
@@ -255,9 +257,26 @@ def main():
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    # 统计模型输入为"Retrieval]" 的个数
+    file_output = './output.txt'
+    file_output_toLong = './output_toLong.txt'
+    file_output_error_yqltest = './output_error_yqltest.txt'
+    file_output_error_dev = './output_error_dev.txt'
+    file_output_error_test = './output_error_test.txt'
+    file_output_error_train = './output_error_train.txt'
+
+    file_output_error = file_output_error_train
+
+    # 统计模型输出为"Retrieval]" 的个数
     sum_Retrieval_code = 0
     sum_All = 0
+
+    # 统计模型输出为"Utility" 的个数，以及分别的得数
+    sum_Utility_5 = 0
+    sum_Utility_4 = 0
+    sum_Utility_3 = 0
+    sum_Utility_2 = 0
+    sum_Utility_1 = 0
+    sum_Utility_error = 0
 
     if args.split == "train":
         correct, total = 0, 0
@@ -278,13 +297,51 @@ def main():
 
             sum_All += 1
 
+            pred = "[" + preds[j]
 
-            pred = preds[j]
-
+            # 此时生成是否进行进行检索的标签
             if args.input_mode == "retrieval_input":
                 pred = '[Retrieval]' # TODO: 强制将模型输出修改为默认检索
                 if preds[j] == "No Retrieval]":
                     sum_Retrieval_code += 1
+
+            # 此时生成回答对于问题的有效性
+            if args.input_mode == "utility_input":
+                if pred == "[Utility:5]" or "Utility:5" in pred:
+                    sum_Utility_5 += 1
+                    pred = "[Utility:5]"
+                elif pred == "[Utility:4]" or "Utility:4" in pred:
+                    sum_Utility_4 += 1
+                    pred = "[Utility:4]"
+                elif pred == "[Utility:3]" or "Utility:3" in pred:
+                    sum_Utility_3 += 1
+                    pred = "[Utility:3]"
+                elif pred == "[Utility:2]" or "Utility:2" in pred:
+                    sum_Utility_2 += 1
+                    pred += "[Utility:2]"
+                elif pred == "[Utility:1]" or "Utility:1" in pred:
+                    sum_Utility_1 += 1
+                    pred += "[Utility:1]"
+                else:
+                    sum_Utility_error += 1
+                    print("\n---------error-------index: " + str(sum_All) + " ---")
+                    print(sum_All)
+                    print("instruction: " + item["instruction"])
+                    print("output: " + item["output"])
+                    print(pred)
+                    print()
+                    with open(file_output_error, 'a', encoding='utf-8') as file:
+                        # 将标准输出重定向到文件
+                        sys.stdout = file
+                        print("\n---------error-------index: " + str(sum_All) + " ---")
+                        print(sum_All)
+                        print("instruction: " + item["instruction"])
+                        print("output: " + item["output"])
+                        print(pred)
+                        print()
+                    # 恢复标准输出
+                    sys.stdout = sys.__stdout__
+                    pred = "[Utility:4]"  # TODO: 所有出现错误的 Utility 均使用 Utility:4
 
             item["pred"] = pred
             if args.split == "train":
@@ -327,8 +384,16 @@ def main():
         json.dump(predicted_results, outfile, ensure_ascii=False)
 
     # 统计数据正确率参数
-    print(str(sum_Retrieval_code / sum_All) + " (" + str(sum_Retrieval_code) + " / " + str(sum_All) + ")")
-
+    print("统计模型输出为 Retrieval : \n" + str(sum_Retrieval_code / sum_All) + " (" + str(sum_Retrieval_code) + " / " + str(sum_All) + ")")
+    print("\n统计模型输出为Utility : ")
+    print("sum_Utility_5 : " + str(sum_Utility_5))
+    print("sum_Utility_4 : " + str(sum_Utility_4))
+    print("sum_Utility_3 : " + str(sum_Utility_3))
+    print("sum_Utility_2 : " + str(sum_Utility_2))
+    print("sum_Utility_1 : " + str(sum_Utility_1))
+    print("sum_Utility_error : " + str(sum_Utility_error))
+    print("sum_All : " + str(sum_All))
+    print("错误率 : " + str(sum_Utility_error / sum_All))
 
 if __name__ == "__main__":
     print("start")
