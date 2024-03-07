@@ -4,7 +4,8 @@ import argparse
 import json
 import os
 import spacy
-nlp = spacy.load("en_core_web_sm")
+# nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("zh_core_web_sm")
 TASK_DATA = ["nq", "wow", "fever", "tqa", "arc_easy", "arc_hard", "obqa", "qrecc", "race", "asqa"]
 def split_sentences(paragraph):
     doc = nlp(paragraph)
@@ -116,6 +117,10 @@ def main():
                                    " " + output, "answers": [output], "q_id": q_id, }
                 processed_data.append(processed_entry)
     print(len(processed_data))
+    # 检查目录是否存在，如果不存在则创建目录
+    directory = os.path.dirname(args.output_file)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
     save_file_jsonl(processed_data, args.output_file)
     save_file_jsonl(splitted_data, args.output_file + "_splitted")
 

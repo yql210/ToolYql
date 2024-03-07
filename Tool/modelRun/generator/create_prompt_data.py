@@ -4,7 +4,8 @@ import json
 import os
 import spacy
 
-nlp = spacy.load("en_core_web_sm")
+# nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("zh_core_web_sm")
 separation_str = "\n\n### Response:\n"
 TASK_DATA = ["wow", "fever", "arc_easy", "arc_hard", "obqa", "qrecc", "race", "asqa"]
 
@@ -66,6 +67,11 @@ def main():
     batch_size = len(dpr_data) // args.num_jobs
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
+
+    # 检查目录是否存在，如果不存在则创建目录
+    directory = os.path.dirname(args.output_dir)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     for i in range(args.num_jobs):
         processed_data = []
