@@ -6,8 +6,9 @@ from huggingface_hub import snapshot_download
 # snapshot_download(repo_id="selfrag/selfrag_llama2_7b")
 # snapshot_download(repo_id="Aman/selfrag-zh_baichuan2_7b_chat")
 
-snapshot_download(repo_id="selfrag/self_rag_critic")
+# snapshot_download(repo_id="selfrag/self_rag_critic")
 
+snapshot_download(repo_id="facebook/contriever-msmarco")
 
 # snapshot_download(repo_id="HuggingFaceH4/zephyr-7b-beta")
 

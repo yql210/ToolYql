@@ -22,9 +22,9 @@ def load_json(fname, mode="r", encoding="utf8"):
 
 
 def main():
-    file_output = 'DataFromGlm4ToSelfRAG/output.txt'
-    file_output_toLong = 'DataFromGlm4ToSelfRAG/output_toLong.txt'
-    file_output_error = 'DataFromGlm4ToSelfRAG/output_error.txt'
+    file_output = 'DataFromGlm4ToSelfRAG/save_all/output.txt'
+    file_output_toLong = 'DataFromGlm4ToSelfRAG/save_all/output_toLong.txt'
+    file_output_error = 'DataFromGlm4ToSelfRAG/save_all/output_error.txt'
 
     with open(file_output, 'a', encoding='utf-8') as file:
         # 将标准输出重定向到文件
@@ -40,9 +40,9 @@ def main():
     file_test_path = './DataFromGlm4ToSelfRAG/test_save_V1.json'
     file_train_path = './DataFromGlm4ToSelfRAG/train_save_V1.json'
 
-    file_dev_save_path = './DataFromGlm4ToSelfRAG/SpCQL_dev_SelfRAG_V1_save.json'
-    file_test_save_path = './DataFromGlm4ToSelfRAG/SpCQL_test_SelfRAG_V1_save.json'
-    file_train_save_path = './DataFromGlm4ToSelfRAG/SpCQL_train_SelfRAG_V1_save.json'
+    file_dev_save_path = './DataFromGlm4ToSelfRAG/save_all/SpCQL_dev_SelfRAG_V1_save.json'
+    file_test_save_path = './DataFromGlm4ToSelfRAG/save_all/SpCQL_test_SelfRAG_V1_save.json'
+    file_train_save_path = './DataFromGlm4ToSelfRAG/save_all/SpCQL_train_SelfRAG_V1_save.json'
 
     # datas = read_large_json(file_train_path_test)
     # datas = read_large_json(file_dev_path)
@@ -104,7 +104,9 @@ def main():
                            "\n问题：" + data['query']
                    )
 
-        conversation = {"instruction": message,
+        conversation = {"instruction": data['query'],
+                        "cypher": data['cypher'],
+                        "answer": data['answer'],
                         "output": data['glm-4-answer'],
                         "input": "",
                         "topic": "",

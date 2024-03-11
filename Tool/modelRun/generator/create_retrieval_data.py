@@ -6,6 +6,7 @@ import os
 import spacy
 # nlp = spacy.load("en_core_web_sm")
 nlp = spacy.load("zh_core_web_sm")
+# nlp = spacy.load("/data/noremove/zh_core_web_sm/")
 TASK_DATA = ["nq", "wow", "fever", "tqa", "arc_easy", "arc_hard", "obqa", "qrecc", "race", "asqa"]
 def split_sentences(paragraph):
     doc = nlp(paragraph)

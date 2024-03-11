@@ -42,8 +42,9 @@ def save_file_jsonl(data, fp):
     with jsonlines.open(fp, mode='w') as writer:
         writer.write_all(data)
 
-nlp = spacy.load("en_core_web_sm")
-
+# nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("zh_core_web_sm")
+# nlp = spacy.load("/data/noremove/zh_core_web_sm/")
 
 def load_json(fn):
     return json.load(open(fn))
