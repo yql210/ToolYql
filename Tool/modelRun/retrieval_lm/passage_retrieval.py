@@ -156,6 +156,8 @@ class Retriever:
         print("passages have been loaded")
 
     def search_document(self, query, top_n=10):
+        print("searching documents")
+        print(query)
         questions_embedding = self.embed_queries(self.args, [query])
 
         # get top k results
@@ -224,10 +226,19 @@ def load_data(data_path):
 
 def main(args):
     # for debugging
-    # data_paths = glob.glob(args.data)
+    data_paths = glob.glob(args.data)
+    print(data_paths)
+
     retriever = Retriever(args)
     retriever.setup_retriever()
+
+
     print(retriever.search_document(args.query, args.n_docs))
+
+    while True:
+        print("Do you want to continue? (y/n)")
+        answer = input("请输入一些内容:")
+        print(retriever.search_document(answer, args.n_docs))
 
 
 if __name__ == "__main__":
@@ -269,7 +280,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("--n_bits", type=int, default=8, help="Number of bits per subquantizer")
     parser.add_argument("--lang", nargs="+")
-    parser.add_argument("--dataset", type=str, default="none")
+    parser.add_argument("--data", type=str, default="none")
     parser.add_argument("--lowercase", action="store_true", help="lowercase text before encoding")
     parser.add_argument("--normalize_text", action="store_true", help="normalize text")
 
