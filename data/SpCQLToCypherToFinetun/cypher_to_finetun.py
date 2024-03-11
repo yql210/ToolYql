@@ -23,9 +23,9 @@ def load_json(fname, mode="r", encoding="utf8"):
 
 
 def main():
-    file_output = 'SpCQLFromGlm4/output.txt'
-    file_output_toLong = 'SpCQLFromGlm4/output_toLong.txt'
-    file_output_error = 'SpCQLFromGlm4/output_error.txt'
+    file_output = 'CypherToFinetun/output.txt'
+    file_output_toLong = 'CypherToFinetun/output_toLong.txt'
+    file_output_error = 'CypherToFinetun/output_error.txt'
 
     with open(file_output, 'a', encoding='utf-8') as file:
         # 将标准输出重定向到文件
@@ -36,21 +36,17 @@ def main():
     sys.stdout = sys.__stdout__
     print("----------start-------------------")
 
-    file_dev_path = './SpCQLFromGlm4/dev_save_V1.json'
-    file_test_path = './SpCQLFromGlm4/test_save_V1.json'
-    file_train_path = './SpCQLFromGlm4/train_save_V1.json'
+    file_dev_path = './CypherToFinetun/dev_save_V1.json'
+    file_test_path = './CypherToFinetun/test_save_V1.json'
+    file_train_path = './CypherToFinetun/train_save_V1.json'
 
-    file_dev_save_path_prompt = './SpCQLFromGlm4/dev_filt_tran_prompt.json'
-    file_test_save_path_prompt = './SpCQLFromGlm4/test_filt_tran_prompt.json'
-    file_train_save_path_prompt = './SpCQLFromGlm4/train_filt_tran_prompt.json'
+    file_dev_save_path_prompt = './CypherToFinetun/dev_cypher_tran_prompt.json'
+    file_test_save_path_prompt = './CypherToFinetun/test_cypher_tran_prompt.json'
+    file_train_save_path_prompt = './CypherToFinetun/train_cypher_tran_prompt.json'
 
-    # file_dev_save_path_no_prompt = './SpCQLFromGlm4/dev_filt_tran_no_prompt.json'
-    # file_test_save_path_no_prompt = './SpCQLFromGlm4/test_filt_tran_no_prompt.json'
-    # file_train_save_path_no_prompt = './SpCQLFromGlm4/train_filt_tran_no_prompt.json'
-    #
-    # file_dev_save_path_no_prompt_no_kg = './SpCQLFromGlm4/dev_filt_tran_no_prompt_no_kg.json'
-    # file_test_save_path_no_prompt_no_kg = './SpCQLFromGlm4/test_filt_tran_no_prompt_no_kg.json'
-    # file_train_save_path_no_prompt_no_kg = './SpCQLFromGlm4/train_filt_tran_no_prompt_no_kg.json'
+    file_dev_save_path_no_prompt = './CypherToFinetun/dev_cypher_tran_no_prompt.json'
+    file_test_save_path_no_prompt = './CypherToFinetun/test_cypher_tran_no_prompt.json'
+    file_train_save_path_no_prompt = './CypherToFinetun/train_cypher_tran_no_prompt.json'
 
     # datas = read_large_json(file_dev_path)
     # datas = read_large_json(file_test_path)
@@ -104,16 +100,11 @@ def main():
                 print()
             continue
 
-        # message = ("作为可以根据问题和知识库的信息完美的生成可以通过图灵测试回答的知识库检索型对话专家，回答的受众是对知识库信息出现在回答中要求很高，并且回答精炼。提供的回答高度契合知识库信息，语言流畅，无关信息不要回复。在回答时，请扮演一个儒雅的老者，根据知识库中的信息给出确切回复，回复一段或者一句话。"
-        #                    "\n问题：" + data['query'] +
-        #                    "\n知识：" + str(data['answer'])
-        #            )
+        message = ("作为一个优秀的neo4j数据库查询专家，可以很好理解自然语言，并根据问题生成Cypher数据库查询语句。提供的查询语句以符合cypher语句规范为前提，并尽可能的准确。在生成查询语句的时候，请扮演一个严谨的数据库查询专家，根据问题生成确切的查询语句，只回复查询语句。"
+                           "\n问题：" + data['query']
+                   )
 
-        # message = ("问题：" + data['query'] +
-        #                    "\n知识：" + str(data['answer'])
-        #            )
-
-        message = data['query']
+        # message = data['query']
 
         conversation = {
                     "conversations":
@@ -124,7 +115,7 @@ def main():
                             },
                             {
                                 "from": "gpt",
-                                "value": data['glm-4-answer']
+                                "value": data['cypher']
                             }
                         ]
                     }
