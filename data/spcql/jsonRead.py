@@ -30,18 +30,20 @@ def main():
     file_train_save_path = './SpCQL/train_save.json'
 
     # large_data = read_large_json(file_path)
-    # data_dev = load_json(file_dev_path)
+    data_dev = load_json(file_dev_path)
     data_test = load_json(file_test_path)
     data_train = load_json(file_train_path)
+
+    datas = data_test
 
     i = 0
     index = 0
     index1 = 0
     items = []
 
-    for data in data_train:
-        print(data['query'], end="  -->  ")
+    for data in datas:
         print(data['cypher'], end="  -->  ")
+        print(data['query'], end="  -->  ")
         print(data['answer'], end="  -->  ")
 
         # print(data['query'])
