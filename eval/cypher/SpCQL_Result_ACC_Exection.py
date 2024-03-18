@@ -115,7 +115,7 @@ def main():
     sys.stdout = sys.__stdout__
     print("----------start-------------------")
 
-    file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data.json'
+    file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_V2.json'
 
     datas = read_large_json_to_list(file_result_all)
 
@@ -130,19 +130,19 @@ def main():
         # print(gold_answer)
         # print(model_answer)
 
-        if gold_answer == "[{'p': '(东冲西撞)-[:Tag {}]->(字词)<-[:Tag {}]-(东冲西突)'}]":
-            print(data)
-            result_set_isEmpty += 1
-            continue
-
-        if model_answer == "[{'p': Node('ENTITY', name='24小时')}]":
-            print(data)
-            result_set_isEmpty += 1
-            continue
-
-        gold_answer = ast.literal_eval(gold_answer)
-
-        model_answer = ast.literal_eval(model_answer)
+        # if gold_answer == "[{'p': '(东冲西撞)-[:Tag {}]->(字词)<-[:Tag {}]-(东冲西突)'}]":
+        #     print(data)
+        #     result_set_isEmpty += 1
+        #     continue
+        #
+        # if model_answer == "[{'p': Node('ENTITY', name='24小时')}]":
+        #     print(data)
+        #     result_set_isEmpty += 1
+        #     continue
+        #
+        # gold_answer = ast.literal_eval(gold_answer)
+        #
+        # model_answer = ast.literal_eval(model_answer)
 
         # print(data['answer'])
         # print(data['result-neo4j-answer'])
