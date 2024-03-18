@@ -35,6 +35,10 @@ def logical_accuracy(model_queries, gold_queries):
     # 计算逻辑准确度
     accuracy = logical_matches / len(model_queries)
 
+    print("正确的个数： " + str(logical_matches))
+    print("全部测试数据的个数： " + str(len(model_queries)))
+    print("正确率： " + str(accuracy))
+
     return accuracy
 
 
@@ -103,7 +107,7 @@ def main():
     print(result)
 
 
-    print("111")
+    print("--------------end----------------")
 
 
 
