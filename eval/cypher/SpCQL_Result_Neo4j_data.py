@@ -89,6 +89,8 @@ def main():
     counect_flag_timeout = False
     counect_flag_error = False
 
+    cypher_false = 0
+    cypher_false_timeout = 0
 
     index = 0
     index1 = 0
@@ -98,10 +100,9 @@ def main():
 
     # for data_result in datas_result:
     for i in range(0, len(data_spcql_all)):
-        # index_count += 1
-        #
-        # if index_count == 2001:
-        #     break
+
+        # if i < 1801:
+        #     continue
 
         print(i)
         print(datas_result[i]['Input'])
@@ -111,6 +112,10 @@ def main():
         counect_flag_timeout = False
         counect_flag_error = False
         result = []
+
+        cypher_flag_timeout = False
+        cypher_flag_error = False
+        answer = []
 
         try:
             # result = []
@@ -169,19 +174,47 @@ def main():
         if data_spcql_all[i]['instruction'] != datas_result[i]['Input']:
             raise ValueError("值错误，发生了一些不正确的事情")
 
-        conversation = {"instruction": data_spcql_all[i]['instruction'],
-                        "cypher": data_spcql_all[i]['cypher'],
-                        "answer": str(data_spcql_all[i]['answer']),
-                        "glm-4-answer": data_spcql_all[i]['glm-4-answer'],
-                        "selfRAG-answer": data_spcql_all[i]['output'],
-                        "result-cypher": datas_result[i]['Output'],
-                        "result-neo4j-answer": str(result),
-                        "result-neo4j-error": counect_flag_error,
-                        "result-neo4j-timeout": counect_flag_timeout,
-                        "input": data_spcql_all[i]['input'],
-                        "topic": data_spcql_all[i]['topic'],
-                        "id": data_spcql_all[i]['id'],
-                        "dataset_name": "SpCQL_test"}
+        try:
+            # result = []
+            # result = graph.run(datas_result[i]['Output']).data()
+            answer = get_result_from_neo4j(data_spcql_all[i]['cypher'])
+        except func_timeout.exceptions.FunctionTimedOut:
+            print("Function execution has timed out.")
+            cypher_flag_timeout = True
+            cypher_false_timeout += 1
+        except Exception as e:
+            # 如果发生了其他类型的异常，执行这里的代码
+            print("An error occurred:", e)
+            cypher_flag_error = True
+            cypher_false += 1
+            print()
+
+        if i == 318:
+            answer[0]['p'] = str(answer[0]['p'])
+            result[0]['p'] = str(result[0]['p'])
+            print("start")
+
+        if i == 1801:
+            answer[0]['p'] = str(answer[0]['p'])
+            # result[0]['p'] = str(result[0]['p'])
+            print("start")
+
+        conversation = {}
+        conversation['instruction'] = data_spcql_all[i]['instruction']
+        conversation['cypher'] = data_spcql_all[i]['cypher']
+        conversation['answer'] = answer
+        conversation['cypher-neo4j-error'] = cypher_flag_error
+        conversation['cypher-neo4j-timeout'] = cypher_flag_timeout
+        conversation['glm-4-answer'] = data_spcql_all[i]['glm-4-answer']
+        conversation['selfRAG-answer'] = data_spcql_all[i]['output']
+        conversation['result-cypher'] = datas_result[i]['Output']
+        conversation['result-neo4j-answer'] = result
+        conversation['result-neo4j-error'] = counect_flag_error
+        conversation['result-neo4j-timeout'] = counect_flag_timeout
+        conversation['input'] = data_spcql_all[i]['input']
+        conversation['topic'] = data_spcql_all[i]['topic']
+        conversation['id'] = data_spcql_all[i]['id']
+        conversation['dataset_name'] = "SpCQL_test"
 
         conversation = json.dumps(conversation, ensure_ascii=False)
         items.append(conversation)
@@ -215,6 +248,9 @@ def main():
     print("Connect false timeout:", connect_false_timeout)
     print("connect all:", len(data_spcql_all))
     print("acc: ", connect_true/len(data_spcql_all))
+    print()
+    print("cypher false: ", cypher_false)
+    print("cypher false timeout: ", cypher_false_timeout)
     print("--------------end----------------")
 
 
