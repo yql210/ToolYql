@@ -120,6 +120,7 @@ def main():
     datas = read_large_json_to_list(file_result_all)
 
     result_set_isEmpty = 0
+    result_model_num_true = 0
 
     for data in datas:
         # print(data)
@@ -154,7 +155,11 @@ def main():
         if result['set_isEmpty']:
             result_set_isEmpty += 1
 
-    print(result_set_isEmpty / len(datas))
+        if result['count_model_num_true'] > 0 or result['set_isEmpty']:
+            result_model_num_true += 1
+
+    print("set中的所有value全部被清空：", result_set_isEmpty / len(datas))
+    print("set中的有value被删除（有一个就算）：", result_model_num_true / len(datas))
 
 
 
