@@ -4,7 +4,7 @@ import time
 import func_timeout
 from func_timeout import func_set_timeout
 from threading import Thread
-from py2neo import Graph, NodeMatcher, RelationshipMatcher
+from py2neo import Graph, NodeMatcher, RelationshipMatcher, Path
 import jsonlines
 
 def read_large_json_to_list(file_path):
@@ -61,24 +61,27 @@ def main():
     sys.stdout = sys.__stdout__
     print("----------start-------------------")
 
-    file_original_no_prompt = './SpCQL_Cypher_To_Finetun/test_cypher_tran_no_prompt.json'
-    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result.json'
+    # file_original_no_prompt = './SpCQL_Cypher_To_Finetun/test_cypher_tran_no_prompt.json'
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result.json'
+
+    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch150.json'
+    file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch150.json'
 
     file_original_prompt = './SpCQL_Cypher_To_Finetun/test_cypher_tran_prompt.json'
     file_result_prompt = './result/test_cypher_tran_prompt_result.json'
 
     file_spcql_all = './SpCQL_all/SpCQL_test_train_V2.jsonl'
-    file_spcql_all_neo4j_data = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data.json'
+    file_spcql_all_neo4j_data = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_V2.json'
 
-    data_spcql_all = load_jsonlines(file_spcql_all)
+    data_spcql_all = read_large_json_to_list(file_spcql_all_neo4j_data)
 
-    datas_original = read_large_json_to_list(file_original_no_prompt)
+    # datas_original = read_large_json_to_list(file_original_no_prompt)
     datas_result = read_large_json_to_list(file_result_no_prompt)
 
     # datas_original = read_large_json_to_list(file_original_prompt)
     # datas_result = read_large_json_to_list(file_result_prompt)
 
-    file_save_path = file_spcql_all_neo4j_data
+    file_save_path = file_result_no_prompt_save
 
     connect_true = 0
     connect_false = 0
@@ -101,7 +104,7 @@ def main():
     # for data_result in datas_result:
     for i in range(0, len(data_spcql_all)):
 
-        # if i < 1801:
+        # if i < 318:
         #     continue
 
         print(i)
@@ -146,7 +149,7 @@ def main():
             # 恢复标准输出
             sys.stdout = sys.__stdout__
 
-            time.sleep(10)
+            # time.sleep(10)
         except Exception as e:
             # 如果发生了其他类型的异常，执行这里的代码
             print("An error occurred:", e)
@@ -169,52 +172,57 @@ def main():
 
             # 恢复标准输出
             sys.stdout = sys.__stdout__
-            time.sleep(10)
+            # time.sleep(10)
 
         if data_spcql_all[i]['instruction'] != datas_result[i]['Input']:
             raise ValueError("值错误，发生了一些不正确的事情")
 
-        try:
-            # result = []
-            # result = graph.run(datas_result[i]['Output']).data()
-            answer = get_result_from_neo4j(data_spcql_all[i]['cypher'])
-        except func_timeout.exceptions.FunctionTimedOut:
-            print("Function execution has timed out.")
-            cypher_flag_timeout = True
-            cypher_false_timeout += 1
-        except Exception as e:
-            # 如果发生了其他类型的异常，执行这里的代码
-            print("An error occurred:", e)
-            cypher_flag_error = True
-            cypher_false += 1
-            print()
+        # try:
+        #     # result = []
+        #     # result = graph.run(datas_result[i]['Output']).data()
+        #     answer = get_result_from_neo4j(data_spcql_all[i]['cypher'])
+        # except func_timeout.exceptions.FunctionTimedOut:
+        #     print("Function execution has timed out.")
+        #     cypher_flag_timeout = True
+        #     cypher_false_timeout += 1
+        # except Exception as e:
+        #     # 如果发生了其他类型的异常，执行这里的代码
+        #     print("An error occurred:", e)
+        #     cypher_flag_error = True
+        #     cypher_false += 1
+        #     print()
+
+
+        # if isinstance(result[0]['p'], Path):
+        #     result[0]['p'] = str(result[0]['p'])
+        #     print("start")
 
         if i == 318:
-            answer[0]['p'] = str(answer[0]['p'])
+            # answer[0]['p'] = str(answer[0]['p'])
             result[0]['p'] = str(result[0]['p'])
             print("start")
 
         if i == 1801:
-            answer[0]['p'] = str(answer[0]['p'])
+            # answer[0]['p'] = str(answer[0]['p'])
             # result[0]['p'] = str(result[0]['p'])
             print("start")
 
-        conversation = {}
-        conversation['instruction'] = data_spcql_all[i]['instruction']
-        conversation['cypher'] = data_spcql_all[i]['cypher']
-        conversation['answer'] = answer
-        conversation['cypher-neo4j-error'] = cypher_flag_error
-        conversation['cypher-neo4j-timeout'] = cypher_flag_timeout
-        conversation['glm-4-answer'] = data_spcql_all[i]['glm-4-answer']
-        conversation['selfRAG-answer'] = data_spcql_all[i]['output']
-        conversation['result-cypher'] = datas_result[i]['Output']
+        conversation = data_spcql_all[i]
+        # conversation['instruction'] = data_spcql_all[i]['instruction']
+        # conversation['cypher'] = data_spcql_all[i]['cypher']
+        # conversation['answer'] = data_spcql_all[i]['answer']
+        # conversation['cypher-neo4j-error'] = data_spcql_all[i]['cypher-neo4j-error']
+        # conversation['cypher-neo4j-timeout'] = data_spcql_all[i]['cypher-neo4j-timeout']
+        # conversation['glm-4-answer'] = data_spcql_all[i]['glm-4-answer']
+        # conversation['selfRAG-answer'] = data_spcql_all[i]['output']
+        # conversation['result-cypher'] = datas_result[i]['Output']
         conversation['result-neo4j-answer'] = result
         conversation['result-neo4j-error'] = counect_flag_error
         conversation['result-neo4j-timeout'] = counect_flag_timeout
-        conversation['input'] = data_spcql_all[i]['input']
-        conversation['topic'] = data_spcql_all[i]['topic']
-        conversation['id'] = data_spcql_all[i]['id']
-        conversation['dataset_name'] = "SpCQL_test"
+        # conversation['input'] = data_spcql_all[i]['input']
+        # conversation['topic'] = data_spcql_all[i]['topic']
+        # conversation['id'] = data_spcql_all[i]['id']
+        # conversation['dataset_name'] = "SpCQL_test"
 
         conversation = json.dumps(conversation, ensure_ascii=False)
         items.append(conversation)
