@@ -41,11 +41,11 @@ ast_tree_m = get_ast('match (yuanql) return yuanql limit 10')
 print(ast_tree.toStringTree())
 print(tree.toStringTree())
 
-js = json.loads(ast_tree)
+# js = json.loads(ast_tree)
 
 # 使用Graphviz可视化语法树
 dot = ast_tree.toStringTree()
 graph = graphviz.Source(dot)
-# graph.render("YourGrammar.gv", format='png', cleanup=True)
+graph.render("YourGrammar.gv", format='png', cleanup=True)
 
 print("end")
