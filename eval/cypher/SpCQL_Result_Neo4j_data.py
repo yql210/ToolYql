@@ -6,6 +6,8 @@ from func_timeout import func_set_timeout
 from threading import Thread
 from py2neo import Graph, NodeMatcher, RelationshipMatcher, Path
 import jsonlines
+import os
+import platform
 
 def read_large_json_to_list(file_path):
     data_list = []
@@ -64,8 +66,36 @@ def main():
     # file_original_no_prompt = './SpCQL_Cypher_To_Finetun/test_cypher_tran_no_prompt.json'
     # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result.json'
 
-    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch150.json'
-    file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch150.json'
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch150.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch150.json'
+
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch4.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch4.json'
+
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch40.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch40.json'
+
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch150.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch150.json'
+
+    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch6.json'
+    file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch6.json'
+
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch10.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch10.json'
+    #
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch4.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch4.json'
+    #
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch6.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch6.json'
+    #
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch10.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch10.json'
+
+
+
+
 
     file_original_prompt = './SpCQL_Cypher_To_Finetun/test_cypher_tran_prompt.json'
     file_result_prompt = './result/test_cypher_tran_prompt_result.json'
@@ -107,6 +137,9 @@ def main():
         # if i < 318:
         #     continue
 
+        # if i < 1801:
+        #     continue
+
         print(i)
         print(datas_result[i]['Input'])
         print(datas_result[i]['Output'])
@@ -139,7 +172,7 @@ def main():
             with open(file_output_timeout, 'a', encoding='utf-8') as file:
                 # 将标准输出重定向到文件
                 sys.stdout = file
-                print("Function execution has timed out.")
+                print("--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.")
                 print(i)
                 print(datas_result[i])
                 print(datas_result[i]['Input'])
@@ -149,10 +182,10 @@ def main():
             # 恢复标准输出
             sys.stdout = sys.__stdout__
 
-            # time.sleep(10)
+            time.sleep(10)
         except Exception as e:
             # 如果发生了其他类型的异常，执行这里的代码
-            print("An error occurred:", e)
+            print("--错误--错误--错误--错误--错误--错误--错误--错误--错误--An error occurred:", e)
             connect_false += 1
             counect_flag_error = True
             print()
@@ -172,7 +205,7 @@ def main():
 
             # 恢复标准输出
             sys.stdout = sys.__stdout__
-            # time.sleep(10)
+            time.sleep(10)
 
         if data_spcql_all[i]['instruction'] != datas_result[i]['Input']:
             raise ValueError("值错误，发生了一些不正确的事情")
@@ -199,12 +232,16 @@ def main():
 
         if i == 318:
             # answer[0]['p'] = str(answer[0]['p'])
-            result[0]['p'] = str(result[0]['p'])
+            # result[0]['p'] = str(result[0]['p'])
+            for i in range(len(result)):
+                result[i]['p'] = str(result[i]['p'])
             print("start")
 
         if i == 1801:
             # answer[0]['p'] = str(answer[0]['p'])
             # result[0]['p'] = str(result[0]['p'])
+            for i in range(len(result)):
+                result[i]['p'] = str(result[i]['p'])
             print("start")
 
         conversation = data_spcql_all[i]
@@ -272,9 +309,17 @@ def main():
 
 
 
+def play_sound():
+    system = platform.system()
+    if system == "Windows":
+        import winsound
+        winsound.Beep(500, 10000)
+    elif system == "Linux" or system == "Darwin":
+        os.system("play -nq -t alsa synth {} sine {}".format(1, 1000))
 
 
 if __name__ == "__main__":
     graph = Graph("http://172.16.44.106:7474", auth=("neo4j", "neo4jneo4j"))
 
     main()
+    play_sound()

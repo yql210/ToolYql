@@ -115,7 +115,27 @@ def main():
     sys.stdout = sys.__stdout__
     print("----------start-------------------")
 
-    file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_V2.json'
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_V2.json'
+
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch150.json'
+
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch4.json'
+
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch40.json'
+
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch150.json'
+    #
+    file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch6.json'
+    #
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch10.json'
+    #
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch4.json'
+    #
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch6.json'
+    #
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch10.json'
+
+
 
     datas = read_large_json_to_list(file_result_all)
 

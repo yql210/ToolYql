@@ -84,12 +84,34 @@ def main():
     print("----------start-------------------")
 
     file_original_no_prompt = './SpCQL_Cypher_To_Finetun/test_cypher_tran_no_prompt.json'
+
+    # file_original_prompt = './SpCQL_Cypher_To_Finetun/test_cypher_tran_prompt.json'
+    # file_result_prompt = './result/test_cypher_tran_prompt_result.json'
+
+
+
     # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result.json'
 
     file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch150.json'
 
-    file_original_prompt = './SpCQL_Cypher_To_Finetun/test_cypher_tran_prompt.json'
-    file_result_prompt = './result/test_cypher_tran_prompt_result.json'
+    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch4.json'
+
+    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch40.json'
+
+    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch150.json'
+
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch6.json'
+    #
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_chatglm3_epoch10.json'
+
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch4.json'
+
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch6.json'
+
+    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch10.json'
+    #
+
+
 
     datas_original = read_large_json_to_list(file_original_no_prompt)
     datas_result = read_large_json_to_list(file_result_no_prompt)
