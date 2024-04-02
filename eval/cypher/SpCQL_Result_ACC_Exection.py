@@ -125,15 +125,15 @@ def main():
 
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch150.json'
     #
-    file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch6.json'
-    #
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch6.json'
+
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_chatglm3_epoch10.json'
-    #
+
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch4.json'
-    #
+
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch6.json'
-    #
-    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch10.json'
+
+    file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch10.json'
 
 
 
