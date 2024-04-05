@@ -72,9 +72,9 @@ def main():
     file_test_path = './save_all/SpCQL_test_SelfRAG_V1_save.jsonl'
     file_train_path = './save_all/SpCQL_train_SelfRAG_V1_save.jsonl'
 
-    retrieval_file_dev_path = './INITIAL_RETRIEVAL_TOKEN_OUTPUT/SpCQL_dev_Retrieval_V1.json'
-    retrieval_file_test_path = './INITIAL_RETRIEVAL_TOKEN_OUTPUT/SpCQL_test_Retrieval_V1.json'
-    retrieval_file_train_path = './INITIAL_RETRIEVAL_TOKEN_OUTPUT/SpCQL_train_Retrieval_V1.json'
+    # retrieval_file_dev_path = './INITIAL_RETRIEVAL_TOKEN_OUTPUT/SpCQL_dev_Retrieval_V1.json'
+    # retrieval_file_test_path = './INITIAL_RETRIEVAL_TOKEN_OUTPUT/SpCQL_test_Retrieval_V1.json'
+    # retrieval_file_train_path = './INITIAL_RETRIEVAL_TOKEN_OUTPUT/SpCQL_train_Retrieval_V1.json'
 
     utility_file_dev_path = './INITIAL_UTILITY_TOKEN_OUTPUT/SpCQL_dev_Utility_V1.json'
     utility_file_test_path = './INITIAL_UTILITY_TOKEN_OUTPUT/SpCQL_test_Utility_V1.json'
@@ -84,23 +84,27 @@ def main():
     # file_test_save_path = './selfrag_all/SpCQL_test_train_V1.jsonl'
     # file_train_save_path = './selfrag_all/SpCQL_train_train_V1.jsonl'
 
-    file_dev_save_path = './selfrag_all/SpCQL_dev_train_V2.jsonl'
-    file_test_save_path = './selfrag_all/SpCQL_test_train_V2.jsonl'
-    file_train_save_path = './selfrag_all/SpCQL_train_train_V2.jsonl'
+    isSup_file_dev_path = './SArag_isSup/SpCQL_dev_train_V1.jsonl'
+    isSup_file_test_path = './SArag_isSup/SpCQL_test_train_V1.jsonl'
+    isSup_file_train_path = './SArag_isSup/SpCQL_train_train_V1.jsonl'
+
+    file_dev_save_path = './SArag_all/SpCQL_dev_train.jsonl'
+    file_test_save_path = './SArag_all/SpCQL_test_train.jsonl'
+    file_train_save_path = './SArag_all/SpCQL_train_train.jsonl'
 
     input_data = load_all_files(file_dev_path)
-    retrieval_data = load_all_files(retrieval_file_dev_path)
     utility_data = load_all_files(utility_file_dev_path)
+    isSup_data = load_all_files(isSup_file_dev_path)
     file_save_path = file_dev_save_path
 
     # input_data = load_all_files(file_test_path)
-    # retrieval_data = load_all_files(retrieval_file_test_path)
     # utility_data = load_all_files(utility_file_test_path)
+    # isSup_data = load_all_files(isSup_file_test_path)
     # file_save_path = file_test_save_path
 
     # input_data = load_all_files(file_train_path)
-    # retrieval_data = load_all_files(retrieval_file_train_path)
     # utility_data = load_all_files(utility_file_train_path)
+    # isSup_data = load_all_files(isSup_file_train_path)
     # file_save_path = file_train_save_path
 
     processed_data = []
@@ -165,8 +169,19 @@ def main():
 
         output = ""
 
+        if instance[0]['output'] != isSup_data[q_id][0]['output']:
+            print("==========================================================")
+            break
+
+        if instance[0]['output'] != utility_data[q_id][0]['output']:
+            print("==========================================================")
+            break
+
+
+
+
         output += "[Retrieval]" + "<paragraph>{}</paragraph>".format(
-            str(instance[0]['answer'])) + "[Relevant]" + instance[0]['output'] + utility_data[q_id][0]['pred']
+            str(instance[0]['answer'])) + instance[0]['output'] + isSup_data[q_id][0]['isSup'] + utility_data[q_id][0]['pred']
 
         conversation = {"instruction": instance[0]['instruction'],
                         "cypher": instance[0]['cypher'],
@@ -175,6 +190,9 @@ def main():
                         "output": output,
                         "input": "",
                         "topic": "",
+                        "Retrieval": '[Retrieval]',
+                        "isSup": isSup_data[q_id][0]['isSup'],
+                        "isUtility": utility_data[q_id][0]['pred'],
                         "id": "SpCQL_" + str(id_index),
                         "dataset_name": "SpCQL"}
 
