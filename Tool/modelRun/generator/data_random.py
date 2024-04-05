@@ -67,9 +67,6 @@ def load_all_files(file_paths):
 
 def main():
     data_open_file_utility = './data_open/Belle_open_source_train_Utility_V1.json'
-    data_open_file_utility_save = './data_open/Belle_open_source_train_Utility_1W_V1.jsonl'
-
-    file_save_path = data_open_file_utility_save
 
     datas_open_file_utility = load_file(data_open_file_utility)
 
@@ -84,16 +81,17 @@ def main():
     items = []
 
     for data in datas_open_file_utility:
-        if len(items) == 10000:
-            break
+        # if len(items) == 10000:
+        #     break
 
         print(data)
+        index1 += 1
 
         # 过滤输入长度的限制,长度限制8K
         if len(data['instruction']) + len(data['output']) > 2014:
-            # 恢复标准输出
-            sys.stdout = sys.__stdout__
-            print(f"{index1} --------data['answer'] 过长，放弃治疗---------长度为:{len(data[0]['answer'])}------------")
+            # # 恢复标准输出
+            # sys.stdout = sys.__stdout__
+            print(f"{index1} --------data['answer'] 过长，放弃治疗---------长度为:{len(data['instruction']) + len(data['output'])}------------")
             print()
             continue
 
@@ -103,7 +101,21 @@ def main():
         data = json.dumps(data, ensure_ascii=False)
         items.append(data)
 
-    store_json_per_line(items, file_save_path)
+
+    data_open_file_utility_save_train = './data_open_train/Belle_open_source_train_Utility_1W_train_V1.jsonl'
+    data_open_file_utility_save_test = './data_open_train/Belle_open_source_train_Utility_1W_test_V1.jsonl'
+    data_open_file_utility_save_dev = './data_open_train/Belle_open_source_train_Utility_1W_dev_V1.jsonl'
+    data_open_file_utility_save = './data_open_train/Belle_open_source_train_Utility_all_V1.jsonl'
+    items_train = items[:7000]
+    items_test = items[7000:9000]
+    items_dev = items[9000:10000]
+
+    # file_save_path = data_open_file_utility_save_train
+
+    store_json_per_line(items_train, data_open_file_utility_save_train)
+    store_json_per_line(items_test, data_open_file_utility_save_test)
+    store_json_per_line(items_dev, data_open_file_utility_save_dev)
+    store_json_per_line(items, data_open_file_utility_save)
 
 
     print("end")
