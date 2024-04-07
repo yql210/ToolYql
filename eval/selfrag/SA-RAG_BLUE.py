@@ -4,6 +4,9 @@ import re
 import spacy
 from nltk.translate.bleu_score import sentence_bleu, corpus_bleu
 from nltk.translate.bleu_score import SmoothingFunction
+import platform
+import os
+
 
 def read_large_json(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
@@ -65,6 +68,15 @@ def clear_all_tokens(model_answer):
     return model_answer
 
 
+def play_sound():
+    system = platform.system()
+    if system == "Windows":
+        import winsound
+        winsound.Beep(500, 5000)
+    elif system == "Linux" or system == "Darwin":
+        os.system("play -nq -t alsa synth {} sine {}".format(1, 1000))
+
+
 def split_sentences(paragraph):
     doc = nlp(paragraph)
     # sentences = []
@@ -94,7 +106,10 @@ def main():
     # sys.stdout = sys.__stdout__
     # print("----------start-------------------")
 
-    file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_20_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_20_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_5_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_10_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
 
     input_datas = load_file(file_path)
 
@@ -210,6 +225,7 @@ if __name__ == "__main__":
     print("\nstart:\n\n")
     main()
     print("\n\nend!!!\n\n")
+    play_sound()
 
 
 

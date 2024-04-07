@@ -6,7 +6,7 @@ def play_sound():
     system = platform.system()
     if system == "Windows":
         import winsound
-        winsound.Beep(500, 10000)
+        winsound.Beep(500, 5000)
     elif system == "Linux" or system == "Darwin":
         os.system("play -nq -t alsa synth {} sine {}".format(1, 1000))
 
