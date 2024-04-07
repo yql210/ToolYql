@@ -1,8 +1,5 @@
-from vllm import LLM, SamplingParams
 import json
-import sys
 import jsonlines
-from tqdm import tqdm
 
 
 def read_large_json(file_path):
@@ -69,7 +66,8 @@ def main():
     # print("----------start-------------------")
 
     # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_20.jsonl'
-    file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_5.jsonl'
+    # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_5.jsonl'
+    file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_10.jsonl'
 
     input_datas = load_file(file_path)
 

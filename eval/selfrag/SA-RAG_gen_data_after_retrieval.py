@@ -80,7 +80,8 @@ def main():
     # print("----------start-------------------")
 
     # model_train_path = '0405_sa_rag_1.3b_epcoh_20'
-    model_train_path = '0405_sa_rag_1.3b_epcoh_5'
+    # model_train_path = '0405_sa_rag_1.3b_epcoh_5'
+    model_train_path = '0405_sa_rag_1.3b_epcoh_10'
 
     file_test_path = './sa-self-gen-data/' + model_train_path + '.jsonl'
 

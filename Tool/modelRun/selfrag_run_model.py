@@ -5,11 +5,11 @@ from vllm import LLM, SamplingParams
 # model = LLM("selfrag/selfrag_llama2_7b", download_dir="/gscratch/h2lab/akari/model_cache", dtype="half")
 
 # model = LLM("/data/noremove/huggingface/hub/models--selfrag--selfrag_llama2_7b/snapshots/190261383b0779ff66d2f95a73c7ad267d94b820", dtype="half")
-# model = LLM("/data/result/selfrag/spcql/0309_self_rag_1.3b_epcoh_40/", dtype="half")
+model = LLM("/data/result/selfrag/spcql/0309_self_rag_1.3b_epcoh_40/", dtype="half")
 # model = LLM("/data/result/selfrag/spcql/0311_self_rag_1.3b_epcoh_5/", dtype="half")
 
 
-model = LLM("/data/yuanql/model/modelscope/AI-ModelScope/chinese-llama-2-1.3b", dtype="half")
+# model = LLM("/data/yuanql/model/modelscope/AI-ModelScope/chinese-llama-2-1.3b", dtype="half")
 
 sampling_params = SamplingParams(temperature=0.0, top_p=1.0, max_tokens=512, skip_special_tokens=False)
 
