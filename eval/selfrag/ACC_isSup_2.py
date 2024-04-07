@@ -94,6 +94,28 @@ def count_true(answer, output):
     return result
 
 
+def count_isSup(model_answer):
+    result = 'Error'
+
+    full = 0
+    part = 0
+    not_supported = 0
+
+    if '[Fully supported]' in model_answer:
+        full = 1
+        result = '[Fully supported]'
+    if '[Partially supported]' in model_answer:
+        part = 1
+        result = '[Partially supported]'
+    if '[No support / Contradictory]' in model_answer:
+        not_supported = 1
+        result = '[No support / Contradictory]'
+
+    if full + part + not_supported == 1:
+        return result
+    else:
+        return 'Error'
+
 def main():
     file_output = './FINAL_OUTPUT_PATH/output.txt'
     file_output_toLong = './FINAL_OUTPUT_PATH/output_toLong.txt'
@@ -109,7 +131,6 @@ def main():
     # print("----------start-------------------")
 
     file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_20_after_retrieval.jsonl'
-
 
     # input_test_datas = load_file(file_test_path)
     input_datas = load_file(file_path)
@@ -140,7 +161,7 @@ def main():
             answer = eval(answer)
             output = data['SA_RAG_data'][0]
             isSup = data['isSup']   # 原始数据中的最原始结果
-            result_isSup = count_true(answer, output)  # 生成的回复和检索到的answer进行对比
+            result_isSup = count_isSup(output)  # 模型直接生成回复中的标签
 
             if isSup == '[Fully supported]':
                 if result_isSup == '[Fully supported]':
