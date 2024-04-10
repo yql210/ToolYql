@@ -69,6 +69,7 @@ def main():
     # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_5.jsonl'
     # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_10.jsonl'
     file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_3.jsonl'
+    # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_40.jsonl'
 
     input_datas = load_file(file_path)
 
@@ -116,6 +117,14 @@ def main():
     print("Error Fu: ", error_fu)
     print("num_all_zheng: ", num_all_zheng)
     print("num_all_fu: ", num_all_fu)
+
+    precision = TP / (TP + FP)
+    recall = TP / (TP + FN)
+
+    print("正确率：", (TP+TN) / (num_all_fu * 2))
+    print("查准率：", precision)
+    print("召回率：", recall)
+    print("F1分数：", 2 * precision * recall / (precision + recall))
 
 
 

@@ -2,6 +2,7 @@ import json
 import sys
 import jsonlines
 from tqdm import tqdm
+from sklearn.metrics import classification_report
 
 
 def read_large_json(file_path):
@@ -112,6 +113,7 @@ def main():
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_5_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_10_after_retrieval.jsonl'
     file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_40_after_retrieval.jsonl'
 
 
     # input_test_datas = load_file(file_test_path)
@@ -133,6 +135,8 @@ def main():
     NN = 0
     N_num = 0
 
+    y_true = []
+    y_pred = []
 
 
 
@@ -146,31 +150,43 @@ def main():
             result_isSup = count_true(answer, output)  # 生成的回复和检索到的answer进行对比
 
             if isSup == '[Fully supported]':
+                y_true.append(0)
                 if result_isSup == '[Fully supported]':
+                    y_pred.append(0)
                     FF += 1
                 elif result_isSup == '[Partially supported]':
+                    y_pred.append(1)
                     FP += 1
                 elif result_isSup == '[No support / Contradictory]':
+                    y_pred.append(2)
                     FN += 1
                 else:
                     F_num += 1
 
             elif isSup == '[Partially supported]':
+                y_true.append(1)
                 if result_isSup == '[Fully supported]':
+                    y_pred.append(0)
                     PF += 1
                 elif result_isSup == '[Partially supported]':
+                    y_pred.append(1)
                     PP += 1
                 elif result_isSup == '[No support / Contradictory]':
+                    y_pred.append(2)
                     PN += 1
                 else:
                     P_num += 1
 
             elif isSup == '[No support / Contradictory]':
+                y_true.append(2)
                 if result_isSup == '[Fully supported]':
+                    y_pred.append(0)
                     NF += 1
                 elif result_isSup == '[Partially supported]':
+                    y_pred.append(1)
                     NP += 1
                 elif result_isSup == '[No support / Contradictory]':
+                    y_pred.append(2)
                     NN += 1
                 else:
                     N_num += 1
@@ -181,6 +197,7 @@ def main():
     print("Fully      " + str(FF) + "          " + str(PF) + "          " + str(NF) + "    " + str(F_num))
     print("Partially  " + str(FP) + "          " + str(PP) + "          " + str(NP) + "    " + str(P_num))
     print("No         " + str(FN) + "          " + str(PN) + "          " + str(NN) + "    " + str(N_num))
+    print(classification_report(y_true, y_pred, target_names=['Fully','Partially','No']))
 
 
 

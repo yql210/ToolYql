@@ -2,6 +2,7 @@ import json
 import jsonlines
 import numpy as np
 import pandas as pd
+from sklearn.metrics import classification_report
 
 
 def read_large_json(file_path):
@@ -102,9 +103,19 @@ def main():
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_5_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_10_after_retrieval.jsonl'
     file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_40_after_retrieval.jsonl'
 
     matrix_rag = np.zeros((5, 6))
     matrix_no_rag = np.zeros((5, 6))
+
+    y_true = []
+    y_pred = []
+
+    y_true_rag = []
+    y_pred_rag = []
+
+    y_true_no_rag = []
+    y_pred_no_rag = []
 
 
     input_datas = load_file(file_path)
@@ -118,73 +129,143 @@ def main():
             result_isUtility = count_isUtility(output)
 
             if isUtility == '[Utility:1]':
+                y_true_rag.append(0)
+                y_true.append(0)
                 if result_isUtility == 1:
+                    y_pred_rag.append(0)
+                    y_pred.append(0)
                     matrix_rag[0][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_rag.append(1)
+                    y_pred.append(1)
                     matrix_rag[0][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_rag.append(2)
+                    y_pred.append(2)
                     matrix_rag[0][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_rag.append(3)
+                    y_pred.append(3)
                     matrix_rag[0][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_rag.append(4)
+                    y_pred.append(4)
                     matrix_rag[0][4] += 1
                 else:
+                    y_pred_rag.append(5)
+                    y_pred.append(5)
                     matrix_rag[0][5] += 1
 
             elif isUtility == '[Utility:2]':
+                y_true_rag.append(1)
+                y_true.append(1)
                 if result_isUtility == 1:
+                    y_pred_rag.append(0)
+                    y_pred.append(0)
                     matrix_rag[1][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_rag.append(1)
+                    y_pred.append(1)
                     matrix_rag[1][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_rag.append(2)
+                    y_pred.append(2)
                     matrix_rag[1][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_rag.append(3)
+                    y_pred.append(3)
                     matrix_rag[1][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_rag.append(4)
+                    y_pred.append(4)
                     matrix_rag[1][4] += 1
                 else:
+                    y_pred_rag.append(5)
+                    y_pred.append(5)
                     matrix_rag[1][5] += 1
 
             elif isUtility == '[Utility:3]':
+                y_true_rag.append(2)
+                y_true.append(2)
                 if result_isUtility == 1:
+                    y_pred_rag.append(0)
+                    y_pred.append(0)
                     matrix_rag[2][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_rag.append(1)
+                    y_pred.append(1)
                     matrix_rag[2][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_rag.append(2)
+                    y_pred.append(2)
                     matrix_rag[2][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_rag.append(3)
+                    y_pred.append(3)
                     matrix_rag[2][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_rag.append(4)
+                    y_pred.append(4)
                     matrix_rag[2][4] += 1
                 else:
+                    y_pred_rag.append(5)
+                    y_pred.append(5)
                     matrix_rag[2][5] += 1
 
             elif isUtility == '[Utility:4]':
+                y_true_rag.append(3)
+                y_true.append(3)
                 if result_isUtility == 1:
+                    y_pred_rag.append(0)
+                    y_pred.append(0)
                     matrix_rag[3][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_rag.append(1)
+                    y_pred.append(1)
                     matrix_rag[3][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_rag.append(2)
+                    y_pred.append(2)
                     matrix_rag[3][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_rag.append(3)
+                    y_pred.append(3)
                     matrix_rag[3][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_rag.append(4)
+                    y_pred.append(4)
                     matrix_rag[3][4] += 1
                 else:
+                    y_pred_rag.append(5)
+                    y_pred.append(5)
                     matrix_rag[3][5] += 1
 
             elif isUtility == '[Utility:5]':
+                y_true_rag.append(4)
+                y_true.append(4)
                 if result_isUtility == 1:
+                    y_pred_rag.append(0)
+                    y_pred.append(0)
                     matrix_rag[4][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_rag.append(1)
+                    y_pred.append(1)
                     matrix_rag[4][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_rag.append(2)
+                    y_pred.append(2)
                     matrix_rag[4][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_rag.append(3)
+                    y_pred.append(3)
                     matrix_rag[4][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_rag.append(4)
+                    y_pred.append(4)
                     matrix_rag[4][4] += 1
                 else:
+                    y_pred_rag.append(5)
+                    y_pred.append(5)
                     matrix_rag[4][5] += 1
         else: # 不执行检索，所以直接使用生成数据
 
@@ -193,73 +274,143 @@ def main():
             result_isUtility = count_isUtility(output)
 
             if isUtility == '[Utility:1]':
+                y_true_no_rag.append(0)
+                y_true.append(0)
                 if result_isUtility == 1:
+                    y_pred_no_rag.append(0)
+                    y_pred.append(0)
                     matrix_no_rag[0][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_no_rag.append(1)
+                    y_pred.append(1)
                     matrix_no_rag[0][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_no_rag.append(2)
+                    y_pred.append(2)
                     matrix_no_rag[0][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_no_rag.append(3)
+                    y_pred.append(3)
                     matrix_no_rag[0][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_no_rag.append(4)
+                    y_pred.append(4)
                     matrix_no_rag[0][4] += 1
                 else:
+                    y_pred_no_rag.append(5)
+                    y_pred.append(5)
                     matrix_no_rag[0][5] += 1
 
             elif isUtility == '[Utility:2]':
+                y_true_no_rag.append(1)
+                y_true.append(1)
                 if result_isUtility == 1:
+                    y_pred_no_rag.append(0)
+                    y_pred.append(0)
                     matrix_no_rag[1][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_no_rag.append(1)
+                    y_pred.append(1)
                     matrix_no_rag[1][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_no_rag.append(2)
+                    y_pred.append(2)
                     matrix_no_rag[1][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_no_rag.append(3)
+                    y_pred.append(3)
                     matrix_no_rag[1][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_no_rag.append(4)
+                    y_pred.append(4)
                     matrix_no_rag[1][4] += 1
                 else:
+                    y_pred_no_rag.append(5)
+                    y_pred.append(5)
                     matrix_no_rag[1][5] += 1
 
             elif isUtility == '[Utility:3]':
+                y_true_no_rag.append(2)
+                y_true.append(2)
                 if result_isUtility == 1:
+                    y_pred_no_rag.append(0)
+                    y_pred.append(0)
                     matrix_no_rag[2][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_no_rag.append(1)
+                    y_pred.append(1)
                     matrix_no_rag[2][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_no_rag.append(2)
+                    y_pred.append(2)
                     matrix_no_rag[2][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_no_rag.append(3)
+                    y_pred.append(3)
                     matrix_no_rag[2][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_no_rag.append(4)
+                    y_pred.append(4)
                     matrix_no_rag[2][4] += 1
                 else:
+                    y_pred_no_rag.append(5)
+                    y_pred.append(5)
                     matrix_no_rag[2][5] += 1
 
             elif isUtility == '[Utility:4]':
+                y_true_no_rag.append(3)
+                y_true.append(3)
                 if result_isUtility == 1:
+                    y_pred_no_rag.append(0)
+                    y_pred.append(0)
                     matrix_no_rag[3][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_no_rag.append(1)
+                    y_pred.append(1)
                     matrix_no_rag[3][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_no_rag.append(2)
+                    y_pred.append(2)
                     matrix_no_rag[3][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_no_rag.append(3)
+                    y_pred.append(3)
                     matrix_no_rag[3][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_no_rag.append(4)
+                    y_pred.append(4)
                     matrix_no_rag[3][4] += 1
                 else:
+                    y_pred_no_rag.append(5)
+                    y_pred.append(5)
                     matrix_no_rag[3][5] += 1
 
             elif isUtility == '[Utility:5]':
+                y_true_no_rag.append(4)
+                y_true.append(4)
                 if result_isUtility == 1:
+                    y_pred_no_rag.append(0)
+                    y_pred.append(0)
                     matrix_no_rag[4][0] += 1
                 elif result_isUtility == 2:
+                    y_pred_no_rag.append(1)
+                    y_pred.append(1)
                     matrix_no_rag[4][1] += 1
                 elif result_isUtility == 3:
+                    y_pred_no_rag.append(2)
+                    y_pred.append(2)
                     matrix_no_rag[4][2] += 1
                 elif result_isUtility == 4:
+                    y_pred_no_rag.append(3)
+                    y_pred.append(3)
                     matrix_no_rag[4][3] += 1
                 elif result_isUtility == 5:
+                    y_pred_no_rag.append(4)
+                    y_pred.append(4)
                     matrix_no_rag[4][4] += 1
                 else:
+                    y_pred_no_rag.append(5)
+                    y_pred.append(5)
                     matrix_no_rag[4][5] += 1
 
     print()
@@ -268,10 +419,17 @@ def main():
     matrix_rag = pd.DataFrame(matrix_rag)
     print(matrix_rag)
     print()
+    print(classification_report(y_true_rag, y_pred_rag, target_names=['Utility:1', 'Utility:4', 'Utility:5', 'Error']))
+    print()
     print('不执行检索，所以直接使用生成数据')
     print('意义说明： 第一行为真实的数据，分别是：[Utility:1]、[Utility:2]、[Utility:3]、[Utility:4]、[Utility:5]、Error')
     matrix_no_rag = pd.DataFrame(matrix_no_rag)
     print(matrix_no_rag)
+    print()
+    print(classification_report(y_true_no_rag, y_pred_no_rag, target_names=['Utility:4', 'Utility:5', 'Error']))
+    print()
+    print('-------------------------------------')
+    print(classification_report(y_true, y_pred, target_names=['Utility:1', 'Utility:4', 'Utility:5', 'Error']))
 
 
 
