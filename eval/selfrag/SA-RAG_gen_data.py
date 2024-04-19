@@ -83,7 +83,14 @@ def main():
     # model_train_path = '0405_sa_rag_1.3b_epcoh_5'
     # model_train_path = '0405_sa_rag_1.3b_epcoh_10'
     # model_train_path = '0405_sa_rag_1.3b_epcoh_3'
-    model_train_path = '0405_sa_rag_1.3b_epcoh_40'
+    # model_train_path = '0405_sa_rag_1.3b_epcoh_40'
+
+
+    # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_2'
+    # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_4'
+    # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_6'
+    # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_8'
+    model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_alone_spcql'
 
     file_test_path = './sa-self-data/SArag_test_train.jsonl'
 
