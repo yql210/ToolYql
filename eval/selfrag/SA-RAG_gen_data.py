@@ -85,7 +85,7 @@ def main():
     # model_train_path = '0405_sa_rag_1.3b_epcoh_3'
     # model_train_path = '0405_sa_rag_1.3b_epcoh_40'
 
-
+    # 开始测试数据集对其影响
     # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_2'
     # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_4'
     # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_6'

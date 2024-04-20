@@ -115,6 +115,13 @@ def main():
     file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_40_after_retrieval.jsonl'
 
+    # 开始测试数据集对其影响
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_2_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_4_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_6_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_8_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql_after_retrieval.jsonl'
+
 
     # input_test_datas = load_file(file_test_path)
     input_datas = load_file(file_path)
@@ -197,6 +204,7 @@ def main():
     print("Fully      " + str(FF) + "          " + str(PF) + "          " + str(NF) + "    " + str(F_num))
     print("Partially  " + str(FP) + "          " + str(PP) + "          " + str(NP) + "    " + str(P_num))
     print("No         " + str(FN) + "          " + str(PN) + "          " + str(NN) + "    " + str(N_num))
+    print()
     print(classification_report(y_true, y_pred, target_names=['Fully','Partially','No']))
 
 

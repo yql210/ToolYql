@@ -108,8 +108,16 @@ def main():
 
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_20_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_5_after_retrieval.jsonl'
-    file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_10_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_10_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
+
+    # 开始测试数据集对其影响
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_2_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_4_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_6_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_8_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql_after_retrieval.jsonl'
+
 
     input_datas = load_file(file_path)
 

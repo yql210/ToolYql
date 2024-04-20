@@ -102,8 +102,16 @@ def main():
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_20_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_5_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_10_after_retrieval.jsonl'
-    file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_40_after_retrieval.jsonl'
+
+    # 开始测试数据集对其影响
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_2_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_4_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_6_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_8_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql_after_retrieval.jsonl'
+
 
     matrix_rag = np.zeros((5, 6))
     matrix_no_rag = np.zeros((5, 6))
@@ -426,9 +434,9 @@ def main():
     matrix_no_rag = pd.DataFrame(matrix_no_rag)
     print(matrix_no_rag)
     print()
-    print(classification_report(y_true_no_rag, y_pred_no_rag, target_names=['Utility:4', 'Utility:5', 'Error']))
+    print(classification_report(y_true_no_rag, y_pred_no_rag, target_names=['Utility:1', 'Utility:4', 'Utility:5', 'Error']))
     print()
-    print('-------------------------------------')
+    print('不区分，直接进行对比')
     print(classification_report(y_true, y_pred, target_names=['Utility:1', 'Utility:4', 'Utility:5', 'Error']))
 
 

@@ -90,9 +90,34 @@ def main():
     # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch6.json'
     # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch6.json'
 
-    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch10.json'
-    file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch10.json'
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch10.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2_13b_epoch10.json'
 
+    # 开始测试数据集对其影响
+    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-2.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-2.json'
+
+    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-4.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-4.json'
+
+    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-6.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
+
+    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+
+
+    # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-2.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-2.json'
+
+    # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-4.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-4.json'
+
+    # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
+
+    file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+    file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
 
 
 
@@ -237,12 +262,12 @@ def main():
                 result[i]['p'] = str(result[i]['p'])
             print("start")
 
-        if i == 1801:
-            # answer[0]['p'] = str(answer[0]['p'])
-            # result[0]['p'] = str(result[0]['p'])
-            for i in range(len(result)):
-                result[i]['p'] = str(result[i]['p'])
-            print("start")
+        # if i == 1801:
+        #     # answer[0]['p'] = str(answer[0]['p'])
+        #     # result[0]['p'] = str(result[0]['p'])
+        #     for i in range(len(result)):
+        #         result[i]['p'] = str(result[i]['p'])
+        #     print("start")
 
         conversation = data_spcql_all[i]
         # conversation['instruction'] = data_spcql_all[i]['instruction']

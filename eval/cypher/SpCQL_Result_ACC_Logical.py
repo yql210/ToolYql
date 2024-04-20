@@ -108,8 +108,18 @@ def main():
 
     # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch6.json'
 
-    file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch10.json'
-    #
+    # file_result_no_prompt = './result/test_cypher_tran_no_prompt_result_baichuan2_13b_epoch10.json'
+
+    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-2.json'
+    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-4.json'
+    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-6.json'
+    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+
+    # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-2.json'
+    # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-4.json'
+    # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
+    file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+
 
 
 
