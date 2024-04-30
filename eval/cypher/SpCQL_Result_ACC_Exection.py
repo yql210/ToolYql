@@ -139,12 +139,12 @@ def main():
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-2.json'
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-4.json'
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
-    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+    file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
 
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-2.json'
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-4.json'
     # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
-    file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+    # file_result_all = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
 
     datas = read_large_json_to_list(file_result_all)
 

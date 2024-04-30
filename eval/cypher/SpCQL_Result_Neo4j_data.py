@@ -103,8 +103,8 @@ def main():
     # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-6.json'
     # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
 
-    # file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-8.json'
-    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+    file_result_no_prompt = './result/test_cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+    file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
 
 
     # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-2.json'
@@ -116,8 +116,8 @@ def main():
     # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
     # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-6.json'
 
-    file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
-    file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+    # file_result_no_prompt = './result/test_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
+    # file_result_no_prompt_save = './SpCQL_all_Neo4j_data/SpCQL_all_Neo4j_data_baichuan2-13b-cypher-spcql-sft-prompt-epoch40-data-0-8.json'
 
 
 
@@ -207,7 +207,7 @@ def main():
             # 恢复标准输出
             sys.stdout = sys.__stdout__
 
-            time.sleep(10)
+            # time.sleep(10)
         except Exception as e:
             # 如果发生了其他类型的异常，执行这里的代码
             print("--错误--错误--错误--错误--错误--错误--错误--错误--错误--An error occurred:", e)
@@ -230,7 +230,7 @@ def main():
 
             # 恢复标准输出
             sys.stdout = sys.__stdout__
-            time.sleep(10)
+            # time.sleep(10)
 
         if data_spcql_all[i]['instruction'] != datas_result[i]['Input']:
             raise ValueError("值错误，发生了一些不正确的事情")
@@ -262,12 +262,12 @@ def main():
                 result[i]['p'] = str(result[i]['p'])
             print("start")
 
-        # if i == 1801:
-        #     # answer[0]['p'] = str(answer[0]['p'])
-        #     # result[0]['p'] = str(result[0]['p'])
-        #     for i in range(len(result)):
-        #         result[i]['p'] = str(result[i]['p'])
-        #     print("start")
+        if i == 1801:
+            # answer[0]['p'] = str(answer[0]['p'])
+            # result[0]['p'] = str(result[0]['p'])
+            for i in range(len(result)):
+                result[i]['p'] = str(result[i]['p'])
+            print("start")
 
         conversation = data_spcql_all[i]
         # conversation['instruction'] = data_spcql_all[i]['instruction']
