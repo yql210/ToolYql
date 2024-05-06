@@ -54,10 +54,20 @@ def load_all_files(file_paths):
         final_results[q_id].append(item)
     return final_results
 
+# def format_prompt(input, paragraph=None):
+#   prompt = "### Instruction:\n{0}\n\n### Response:\n".format(input)
+#   if paragraph is not None:
+#     prompt += "[Retrieval]<paragraph>{0}</paragraph>".format(paragraph)\
+#
+#   # print(prompt)
+#   return prompt
+
+# 作为可以根据问题和知识库的信息完美的生成可以通过图灵测试回答的知识库检索型对话专家，回答的受众是对知识库信息出现在回答中要求很高，并且回答精炼。提供的回答高度契合知识库信息，语言流畅，无关信息不要回复。在回答时，请扮演一个儒雅的老者，根据知识库中的信息给出确切回复，回复一段或者一句话。\n问题：+ data['query'] +  \n知识：+ str(data['answer'])
+
 def format_prompt(input, paragraph=None):
-  prompt = "### Instruction:\n{0}\n\n### Response:\n".format(input)
+  prompt = "作为可以根据问题和知识库的信息完美的生成可以通过图灵测试回答的知识库检索型对话专家，回答的受众是对知识库信息出现在回答中要求很高，并且回答精炼。提供的回答高度契合知识库信息，语言流畅，无关信息不要回复。在回答时，请扮演一个儒雅的老者，根据知识库中的信息给出确切回复，回复一段或者一句话。\n问题：{0} ".format(input)
   if paragraph is not None:
-    prompt += "[Retrieval]<paragraph>{0}</paragraph>".format(paragraph)\
+    prompt += "\n知识：{0}。".format(paragraph)\
 
   # print(prompt)
   return prompt
@@ -97,6 +107,20 @@ def main():
     file_save_path = './sa-self-gen-data-after-retrieval/' + model_train_path + '_after_retrieval.jsonl'
 
     model_path = '/data/result/sarag/SArag_all/' + model_train_path
+
+    # model_path = '/data/yuanql/model/modelscope/AI-ModelScope/chinese-llama-2-1.3b'
+    # file_test_path = './sa-self-gen-data/chinese-llama-2-1.3b.jsonl'
+    # file_save_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-1.3b.jsonl'
+
+    # model_path = '/data/yuanql/model/modelscope/ChineseAlpacaGroup/chinese-llama-2-7b'
+    # file_test_path = './sa-self-gen-data/chinese-llama-2-7b.jsonl'
+    # file_save_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-7b.jsonl'
+
+    model_path = '/data/yuanql/model/modelscope/ChineseAlpacaGroup/chinese-llama-2-13b'
+    file_test_path = './sa-self-gen-data/chinese-llama-2-13b.jsonl'
+    file_save_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-13b.jsonl'
+
+
     model = LLM(model_path, dtype="half")
     sampling_params = SamplingParams(temperature=0.0, top_p=1.0, max_tokens=512, skip_special_tokens=False)
 
@@ -119,8 +143,10 @@ def main():
 
         # if data['Retrieval'] == '[No Retrieval]':
         #     continue
-
-        prompt = format_prompt(data['instruction'], paragraph=data['answer'])
+        if data['Retrieval'] == "[Retrieval]":
+            prompt = format_prompt(data['instruction'], paragraph=data['answer'])
+        else:
+            prompt = format_prompt(data['instruction'], '')
 
         preds = model.generate([prompt], sampling_params)
 

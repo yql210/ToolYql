@@ -109,22 +109,42 @@ def main():
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_20_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_5_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_10_after_retrieval.jsonl'
-    # file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0405_sa_rag_1.3b_epcoh_3_after_retrieval.jsonl'
 
     # 开始测试数据集对其影响
     # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_2_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_4_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_6_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_8_after_retrieval.jsonl'
-    file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql_after_retrieval.jsonl'
+
+    # 开始测试
+    file_path = './sa-self-gen-data/chinese-llama-2-1.3b.jsonl'
+    file_path_train = './sa-self-gen-data/chatglm3-6b.jsonl'
+
+    file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-1.3b.jsonl'
+
+    # file_path = './sa-self-gen-data/chinese-llama-2-7b.jsonl'
+    # file_path = './sa-self-gen-data/chinese-llama-2-13b.jsonl'
+
+    # file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-7b.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-13b.jsonl'
+
 
 
     input_datas = load_file(file_path)
+    input_datas_train = load_file(file_path_train)
 
     reference = []  # 给定标准译文
     candidate = []  # 神经网络生成的句子
 
     smooth = SmoothingFunction()  # 定义平滑函数对象
+
+    BLUE_1 = 0
+    BLUE_2 = 0
+    BLUE_3 = 0
+    BLUE_4 = 0
+    BLUE_Num = 0
 
     Ret_BLUE_1 = 0
     Ret_BLUE_2 = 0
@@ -138,12 +158,98 @@ def main():
     No_Ret_BLUE_4 = 0
     No_Ret_BLUE_Num = 0
 
+    # for data, data_train in zip(input_datas, input_datas_train):
+    #     print(data)
+    #
+    #     if data['Retrieval'] == "[Retrieval]":
+    #         Ret_BLUE_Num += 1
+    #         BLUE_Num += 1
+    #         str_ref = data['answer']
+    #         str_gen = data_train['Output']
+    #         # str_gen = data['SA_RAG_data'][0]
+    #         str_gen_clear = clear_all_tokens(str_gen)
+    #         print(str_ref)
+    #         print(str_gen)
+    #         print(str_gen_clear)
+    #
+    #         str_ref_split = split_sentences(str_ref)
+    #         str_gen_clear_split = split_sentences(str_gen_clear)
+    #         print(str_ref_split)
+    #         print(str_gen_clear_split)
+    #
+    #         reference.append(str_ref_split)
+    #         candidate = str_gen_clear_split
+    #         # candidate.append(str_gen_clear_split)
+    #         Ret_BLUE_1 += sentence_bleu(reference, candidate, weights=(1, 0, 0, 0), smoothing_function=smooth.method1)
+    #         Ret_BLUE_2 += sentence_bleu(reference, candidate, weights=(0, 1, 0, 0), smoothing_function=smooth.method1)
+    #         Ret_BLUE_3 += sentence_bleu(reference, candidate, weights=(0, 0, 1, 0), smoothing_function=smooth.method1)
+    #         Ret_BLUE_4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smooth.method1)
+    #
+    #         BLUE_1 += sentence_bleu(reference, candidate, weights=(1, 0, 0, 0), smoothing_function=smooth.method1)
+    #         BLUE_2 += sentence_bleu(reference, candidate, weights=(0, 1, 0, 0), smoothing_function=smooth.method1)
+    #         BLUE_3 += sentence_bleu(reference, candidate, weights=(0, 0, 1, 0), smoothing_function=smooth.method1)
+    #         BLUE_4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smooth.method1)
+    #
+    #         reference.clear()
+    #         # print('Cumulate 1-gram :%f' \
+    #         #       % Ret_BLUE_1)
+    #         # print('Cumulate 2-gram :%f' \
+    #         #       % Ret_BLUE_2)
+    #         # print('Cumulate 3-gram :%f' \
+    #         #       % Ret_BLUE_3)
+    #         # print('Cumulate 4-gram :%f' \
+    #         #       % Ret_BLUE_4)
+    #
+    #
+    #     else:
+    #         No_Ret_BLUE_Num += 1
+    #         BLUE_Num += 1
+    #         str_ref = data['answer']
+    #         str_gen = data_train['Output']
+    #         str_gen_clear = clear_all_tokens(str_gen)
+    #         print(str_ref)
+    #         print(str_gen)
+    #         print(str_gen_clear)
+    #
+    #         str_ref_split = split_sentences(str_ref)
+    #         str_gen_clear_split = split_sentences(str_gen_clear)
+    #         print(str_ref_split)
+    #         print(str_gen_clear_split)
+    #
+    #         reference.append(str_ref_split)
+    #         candidate = str_gen_clear_split
+    #         # candidate.append(str_gen_clear_split)
+    #         No_Ret_BLUE_1 += sentence_bleu(reference, candidate, weights=(1, 0, 0, 0), smoothing_function=smooth.method1)
+    #         No_Ret_BLUE_2 += sentence_bleu(reference, candidate, weights=(0, 1, 0, 0), smoothing_function=smooth.method1)
+    #         No_Ret_BLUE_3 += sentence_bleu(reference, candidate, weights=(0, 0, 1, 0), smoothing_function=smooth.method1)
+    #         No_Ret_BLUE_4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smooth.method1)
+    #
+    #         BLUE_1 += sentence_bleu(reference, candidate, weights=(1, 0, 0, 0), smoothing_function=smooth.method1)
+    #         BLUE_2 += sentence_bleu(reference, candidate, weights=(0, 1, 0, 0), smoothing_function=smooth.method1)
+    #         BLUE_3 += sentence_bleu(reference, candidate, weights=(0, 0, 1, 0), smoothing_function=smooth.method1)
+    #         BLUE_4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smooth.method1)
+    #
+    #         reference.clear()
+    #         # print('Cumulate 1-gram :%f' \
+    #         #       % No_Ret_BLUE_1)
+    #         # print('Cumulate 2-gram :%f' \
+    #         #       % No_Ret_BLUE_2)
+    #         # print('Cumulate 3-gram :%f' \
+    #         #       % No_Ret_BLUE_3)
+    #         # print('Cumulate 4-gram :%f' \
+    #         #       % No_Ret_BLUE_4)
+    #
+    #     print('end')
+
+
     for data in input_datas:
         print(data)
 
         if data['Retrieval'] == "[Retrieval]":
             Ret_BLUE_Num += 1
+            BLUE_Num += 1
             str_ref = data['answer']
+            # str_gen = data['SA_RAG_data_no_ret'][0]
             str_gen = data['SA_RAG_data'][0]
             str_gen_clear = clear_all_tokens(str_gen)
             print(str_ref)
@@ -162,6 +268,12 @@ def main():
             Ret_BLUE_2 += sentence_bleu(reference, candidate, weights=(0, 1, 0, 0), smoothing_function=smooth.method1)
             Ret_BLUE_3 += sentence_bleu(reference, candidate, weights=(0, 0, 1, 0), smoothing_function=smooth.method1)
             Ret_BLUE_4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smooth.method1)
+
+            BLUE_1 += sentence_bleu(reference, candidate, weights=(1, 0, 0, 0), smoothing_function=smooth.method1)
+            BLUE_2 += sentence_bleu(reference, candidate, weights=(0, 1, 0, 0), smoothing_function=smooth.method1)
+            BLUE_3 += sentence_bleu(reference, candidate, weights=(0, 0, 1, 0), smoothing_function=smooth.method1)
+            BLUE_4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smooth.method1)
+
             reference.clear()
             # print('Cumulate 1-gram :%f' \
             #       % Ret_BLUE_1)
@@ -175,8 +287,10 @@ def main():
 
         else:
             No_Ret_BLUE_Num += 1
+            BLUE_Num += 1
             str_ref = data['answer']
             str_gen = data['SA_RAG_data_no_ret'][0]
+            # str_gen = data['SA_RAG_data'][0]
             str_gen_clear = clear_all_tokens(str_gen)
             print(str_ref)
             print(str_gen)
@@ -194,6 +308,12 @@ def main():
             No_Ret_BLUE_2 += sentence_bleu(reference, candidate, weights=(0, 1, 0, 0), smoothing_function=smooth.method1)
             No_Ret_BLUE_3 += sentence_bleu(reference, candidate, weights=(0, 0, 1, 0), smoothing_function=smooth.method1)
             No_Ret_BLUE_4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smooth.method1)
+
+            BLUE_1 += sentence_bleu(reference, candidate, weights=(1, 0, 0, 0), smoothing_function=smooth.method1)
+            BLUE_2 += sentence_bleu(reference, candidate, weights=(0, 1, 0, 0), smoothing_function=smooth.method1)
+            BLUE_3 += sentence_bleu(reference, candidate, weights=(0, 0, 1, 0), smoothing_function=smooth.method1)
+            BLUE_4 += sentence_bleu(reference, candidate, weights=(0, 0, 0, 1), smoothing_function=smooth.method1)
+
             reference.clear()
             # print('Cumulate 1-gram :%f' \
             #       % No_Ret_BLUE_1)
@@ -205,6 +325,17 @@ def main():
             #       % No_Ret_BLUE_4)
 
         print('end')
+
+    print("所有数据数据，以下是相关的BLUE数据：")
+    print('Cumulate 1-gram :%f' \
+          % (BLUE_1 / BLUE_Num))
+    print('Cumulate 2-gram :%f' \
+          % (BLUE_2 / BLUE_Num))
+    print('Cumulate 3-gram :%f' \
+          % (BLUE_3 / BLUE_Num))
+    print('Cumulate 4-gram :%f' \
+          % (BLUE_4 / BLUE_Num))
+    print(BLUE_Num)
 
     print("执行检索生成的数据，以下是相关的BLUE数据：")
     print('Cumulate 1-gram :%f' \

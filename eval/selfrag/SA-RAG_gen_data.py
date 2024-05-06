@@ -97,6 +97,17 @@ def main():
     file_save_path = './sa-self-gen-data/' + model_train_path + '.jsonl'
 
     model_path = '/data/result/sarag/SArag_all/' + model_train_path
+
+    # model_path = '/data/yuanql/model/modelscope/AI-ModelScope/chinese-llama-2-1.3b'
+    # file_save_path = './sa-self-gen-data/chinese-llama-2-1.3b.jsonl'
+
+    model_path = '/data/yuanql/model/modelscope/ChineseAlpacaGroup/chinese-llama-2-7b'
+    file_save_path = './sa-self-gen-data/chinese-llama-2-7b.jsonl'
+
+    # model_path = '/data/yuanql/model/modelscope/ChineseAlpacaGroup/chinese-llama-2-13b'
+    # file_save_path = './sa-self-gen-data/chinese-llama-2-13b.jsonl'
+
+
     model = LLM(model_path, dtype="half")
     sampling_params = SamplingParams(temperature=0.0, top_p=1.0, max_tokens=512, skip_special_tokens=False)
 
@@ -116,6 +127,9 @@ def main():
         #     break
 
         index1 += 1
+
+        if index1 < 2501:
+            continue
 
         prompt = format_prompt(data['instruction'])
 
