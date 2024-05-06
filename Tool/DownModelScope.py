@@ -16,6 +16,9 @@ from modelscope.hub.snapshot_download import snapshot_download
 # model_dir = snapshot_download('baichuan-inc/Baichuan-13B-Base', cache_dir='D:\\a_search\\download\\modelscope', revision='v1.0.5')
 # model_dir = snapshot_download('baichuan-inc/Baichuan2-7B-Base', cache_dir='D:\\a_search\\download\\modelscope', revision='v1.0.2')
 
+model_dir = snapshot_download('ChineseAlpacaGroup/chinese-llama-2-7b', cache_dir='D:\\a_search\\download\\modelscope', revision='master')
+model_dir = snapshot_download('ChineseAlpacaGroup/chinese-llama-2-13b', cache_dir='D:\\a_search\\download\\modelscope', revision='master')
+
 
 
 # ---------------------------linux------------------------------------------
@@ -32,18 +35,18 @@ from modelscope.hub.snapshot_download import snapshot_download
 # model_dir = snapshot_download('TabbyML/Mistral-7B', cache_dir='/data/yuanql/model/modelscope', revision='master')
 # model_dir = snapshot_download('AI-ModelScope/Mixtral-8x7B-Instruct-v0.1', cache_dir='/data/yuanql/model/modelscope', revision='master')
 
-model_dir = snapshot_download('AI-ModelScope/chinese-llama-2-1.3b', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('AI-ModelScope/chinese-alpaca-2-1.3b', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('qwen/Qwen-1_8B', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('qwen/Qwen-1_8B-Chat', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('qwen/Qwen1.5-4B', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('qwen/Qwen1.5-4B-Chat', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('AI-ModelScope/chinese-llama-2-1.3b', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('AI-ModelScope/chinese-alpaca-2-1.3b', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('qwen/Qwen-1_8B', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('qwen/Qwen-1_8B-Chat', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('qwen/Qwen1.5-4B', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('qwen/Qwen1.5-4B-Chat', cache_dir='/data/yuanql/model/modelscope', revision='master')
 
 
-model_dir = snapshot_download('YuanLLM/Yuan2.0-2B', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('OpenBMB/miniCPM-bf16', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('OpenBMB/MiniCPM-2B-sft-fp32', cache_dir='/data/yuanql/model/modelscope', revision='master')
-model_dir = snapshot_download('OpenBMB/MiniCPM-2B-dpo-fp32', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('YuanLLM/Yuan2.0-2B', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('OpenBMB/miniCPM-bf16', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('OpenBMB/MiniCPM-2B-sft-fp32', cache_dir='/data/yuanql/model/modelscope', revision='master')
+# model_dir = snapshot_download('OpenBMB/MiniCPM-2B-dpo-fp32', cache_dir='/data/yuanql/model/modelscope', revision='master')
 
 
 # model_dir = snapshot_download('', cache_dir='D:\\a_search\\download\\modelscope', revision='v1.0.3')
