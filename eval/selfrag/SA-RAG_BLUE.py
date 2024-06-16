@@ -130,6 +130,14 @@ def main():
     # file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-7b.jsonl'
     file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-13b.jsonl'
 
+    file_path = './sa-self-gen-data-after-retrieval/0506_sa_rag_1.3b_epcoh_3_only_output_after_retrieval.jsonl'
+
+    file_path = './sa-self-gen-data-after-retrieval/0530_sa_rag_1.3b_epcoh_3_no_retrieval_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_sa_rag_1.3b_epcoh_3_no_label_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_0405_sa_rag_1.3b_epcoh_3_no_retrieval_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_0530_sa_rag_1.3b_epcoh_3_no_label_no_retrieval_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_0530_sa_rag_1.3b_epcoh_3_no_label_no_retrieval_after_retrieval_1.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_0530_sa_rag_1.3b_epcoh_3_no_label_all_retrieval_after_retrieval_2.jsonl'
 
 
     input_datas = load_file(file_path)
@@ -289,8 +297,8 @@ def main():
             No_Ret_BLUE_Num += 1
             BLUE_Num += 1
             str_ref = data['answer']
-            str_gen = data['SA_RAG_data_no_ret'][0]
-            # str_gen = data['SA_RAG_data'][0]
+            # str_gen = data['SA_RAG_data_no_ret'][0]
+            str_gen = data['SA_RAG_data'][0]
             str_gen_clear = clear_all_tokens(str_gen)
             print(str_ref)
             print(str_gen)

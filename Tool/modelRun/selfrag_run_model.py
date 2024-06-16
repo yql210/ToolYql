@@ -12,7 +12,7 @@ model = LLM("/data/result/sarag/SArag_all/0405_sa_rag_1.3b_epcoh_3", dtype="half
 
 # model = LLM("/data/yuanql/model/modelscope/AI-ModelScope/chinese-llama-2-1.3b", dtype="half")
 
-sampling_params = SamplingParams(temperature=0.0, top_p=1.0, max_tokens=512, skip_special_tokens=False)
+sampling_params = SamplingParams(temperature=0.50, top_p=1.0, max_tokens=512, skip_special_tokens=False)
 
 def format_prompt(input, paragraph=None):
   prompt = "### Instruction:\n{0}\n\n### Response:\n".format(input)

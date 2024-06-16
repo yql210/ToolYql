@@ -128,8 +128,8 @@ def main():
 
         index1 += 1
 
-        if index1 < 2501:
-            continue
+        # if index1 < 2501:
+        #     continue
 
         prompt = format_prompt(data['instruction'])
 

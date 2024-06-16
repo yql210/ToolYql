@@ -120,7 +120,7 @@ def main():
     # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_4_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_6_after_retrieval.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_0_8_after_retrieval.jsonl'
-    file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql_after_retrieval.jsonl'
 
 
     # input_test_datas = load_file(file_test_path)

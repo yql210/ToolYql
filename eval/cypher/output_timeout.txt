@@ -1,0 +1,540 @@
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+480
+{'Input': '想了解下141页数的漫画世界幽默系列：李小猫传奇72层关系内的作品介绍？', 'Output': "match (n:ENTITY{name:'李小猫传奇'})-[:Relationship*1..72]->(x) where x.name<>'141页数' return distinct x.name"}
+想了解下141页数的漫画世界幽默系列：李小猫传奇72层关系内的作品介绍？
+match (n:ENTITY{name:'李小猫传奇'})-[:Relationship*1..72]->(x) where x.name<>'141页数' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1066
+{'Input': '3层内幻想妖精涵盖的关系种类你都知道哪些？', 'Output': "match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) where p.name <> '幻想妖精' return distinct p.name"}
+3层内幻想妖精涵盖的关系种类你都知道哪些？
+match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) where p.name <> '幻想妖精' return distinct p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1399
+{'Input': '我需要巴法络PNT500U3B的全部资料？', 'Output': "match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'全部' return distinct x.name"}
+我需要巴法络PNT500U3B的全部资料？
+match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'全部' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+480
+{'Input': '想了解下141页数的漫画世界幽默系列：李小猫传奇72层关系内的作品介绍？', 'Output': "match (n:ENTITY{name:'李小猫传奇'})-[:Relationship*1..72]->(x) where x.name<>'141页数' return distinct x.name"}
+想了解下141页数的漫画世界幽默系列：李小猫传奇72层关系内的作品介绍？
+match (n:ENTITY{name:'李小猫传奇'})-[:Relationship*1..72]->(x) where x.name<>'141页数' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1066
+{'Input': '3层内幻想妖精涵盖的关系种类你都知道哪些？', 'Output': "match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) where p.name <> '幻想妖精' return distinct p.name"}
+3层内幻想妖精涵盖的关系种类你都知道哪些？
+match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) where p.name <> '幻想妖精' return distinct p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1399
+{'Input': '我需要巴法络PNT500U3B的全部资料？', 'Output': "match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'全部' return distinct x.name"}
+我需要巴法络PNT500U3B的全部资料？
+match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'全部' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1854
+{'Input': '我想找6家酒店，他们地址分别是哪里？', 'Output': "match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6"}
+我想找6家酒店，他们地址分别是哪里？
+match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+61
+{'Input': '我需要简体中文版的双狮译丛：中世纪欧洲史3层关系内作品信息好吗？', 'Output': "match (:ENTITY{name:'双狮译丛：中世纪欧洲史'})-[*1..3]-(p) where p.name <> '简体中文' return distinct p.name"}
+我需要简体中文版的双狮译丛：中世纪欧洲史3层关系内作品信息好吗？
+match (:ENTITY{name:'双狮译丛：中世纪欧洲史'})-[*1..3]-(p) where p.name <> '简体中文' return distinct p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+291
+{'Input': '能不能列举一下丹尼埃尔·利奥蒂的10条内容呢？', 'Output': "match (:ENTITY{name:'丹尼埃尔·利奥蒂'})-[*]->(p) return p.name order by p.name limit 10"}
+能不能列举一下丹尼埃尔·利奥蒂的10条内容呢？
+match (:ENTITY{name:'丹尼埃尔·利奥蒂'})-[*]->(p) return p.name order by p.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+61
+{'Input': '我需要简体中文版的双狮译丛：中世纪欧洲史3层关系内作品信息好吗？', 'Output': "match (:ENTITY{name:'双狮译丛：中世纪欧洲史'})-[*1..3]-(p) where p.name <> '简体中文' return distinct p.name"}
+我需要简体中文版的双狮译丛：中世纪欧洲史3层关系内作品信息好吗？
+match (:ENTITY{name:'双狮译丛：中世纪欧洲史'})-[*1..3]-(p) where p.name <> '简体中文' return distinct p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+291
+{'Input': '能不能列举一下丹尼埃尔·利奥蒂的10条内容呢？', 'Output': "match (:ENTITY{name:'丹尼埃尔·利奥蒂'})-[*]->(p) return p.name order by p.name limit 10"}
+能不能列举一下丹尼埃尔·利奥蒂的10条内容呢？
+match (:ENTITY{name:'丹尼埃尔·利奥蒂'})-[*]->(p) return p.name order by p.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+667
+{'Input': '帮我找6所全国重点大学，分别位于哪个城市？', 'Output': "match (:ENTITY{name:'全国重点大学'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'位于'}]->(n) return m.name,n.name limit 6"}
+帮我找6所全国重点大学，分别位于哪个城市？
+match (:ENTITY{name:'全国重点大学'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'位于'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1066
+{'Input': '3层内幻想妖精涵盖的关系种类你都知道哪些？', 'Output': "match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) where p.name <> '幻想妖精' return distinct p.name"}
+3层内幻想妖精涵盖的关系种类你都知道哪些？
+match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) where p.name <> '幻想妖精' return distinct p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1207
+{'Input': '列出214页的商学院文库：宏观经济学教程习题解析相关的3层内关系内资料介绍？', 'Output': "match (n:ENTITY{name:'宏观经济学教程习题解析'})-[:Relationship*1..214]->(x) where x.name<>'214页' return distinct x.name"}
+列出214页的商学院文库：宏观经济学教程习题解析相关的3层内关系内资料介绍？
+match (n:ENTITY{name:'宏观经济学教程习题解析'})-[:Relationship*1..214]->(x) where x.name<>'214页' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1318
+{'Input': '我想要美国的乔丹·汉密尔顿3层内的其他6条信息。', 'Output': "match (:ENTITY{name:'美国'})-[:Relationship*1..3]-(p)-[:Relationship{name:'运动员'}]->(n) return n.name order by n.name limit 6"}
+我想要美国的乔丹·汉密尔顿3层内的其他6条信息。
+match (:ENTITY{name:'美国'})-[:Relationship*1..3]-(p)-[:Relationship{name:'运动员'}]->(n) return n.name order by n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1854
+{'Input': '我想找6家酒店，他们地址分别是哪里？', 'Output': "match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6"}
+我想找6家酒店，他们地址分别是哪里？
+match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1866
+{'Input': '说出四个品牌的香水？他们的代言人是谁？', 'Output': "match (:ENTITY{name:'香水'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4"}
+说出四个品牌的香水？他们的代言人是谁？
+match (:ENTITY{name:'香水'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1955
+{'Input': '能查到六个车站名称吗?他们的站台数是多少？', 'Output': "match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6"}
+能查到六个车站名称吗?他们的站台数是多少？
+match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+237
+{'Input': '宁波市2014年政府工作报告的原市长是谁啊？？这报告又属于什么标签？', 'Output': "match (:ENTITY{name:'宁波市2014年政府工作报告'})-[:Tag{name:'标签'}]-> (n) return n.name as name union all match (n)-[:Relationship{name:'职位'}]->(m) return m.name as name"}
+宁波市2014年政府工作报告的原市长是谁啊？？这报告又属于什么标签？
+match (:ENTITY{name:'宁波市2014年政府工作报告'})-[:Tag{name:'标签'}]-> (n) return n.name as name union all match (n)-[:Relationship{name:'职位'}]->(m) return m.name as name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+251
+{'Input': '找出6家民营企业，他们的总部地点是哪里？', 'Output': "match (:ENTITY{name:'民营企业'})<-[*]-(m), (m)-[:Relationship{name:'总部'}]->(n) return m.name,n.name limit 6"}
+找出6家民营企业，他们的总部地点是哪里？
+match (:ENTITY{name:'民营企业'})<-[*]-(m), (m)-[:Relationship{name:'总部'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+266
+{'Input': '告诉我托马·卡耶的职业和哪些人是一样的？这些人物分别有哪些标签呢？请按照各人物标签数量从小到大排列。', 'Output': "match (:ENTITY{name:'托马·卡耶'})-[:Relationship{name:'职业'}]->(n) return n.name as name union all match (:ENTITY{name:'托马·卡耶'})-[:Tag{name:'标签'}]->(m) return m.name as name union all match (n)-[:Relationship{name:'职业'}]->(r) return r.name as name union all match (m)-[:Relationship{name:'标签'}]->(p) return p.name as name order by p.name"}
+告诉我托马·卡耶的职业和哪些人是一样的？这些人物分别有哪些标签呢？请按照各人物标签数量从小到大排列。
+match (:ENTITY{name:'托马·卡耶'})-[:Relationship{name:'职业'}]->(n) return n.name as name union all match (:ENTITY{name:'托马·卡耶'})-[:Tag{name:'标签'}]->(m) return m.name as name union all match (n)-[:Relationship{name:'职业'}]->(r) return r.name as name union all match (m)-[:Relationship{name:'标签'}]->(p) return p.name as name order by p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+521
+{'Input': '提供给我足球运动员奥厄宁·米切尔的5条信息呗？', 'Output': "match (:ENTITY{name:'奥厄宁·米切尔'})-[*]->(n) where n.name='足球运动员' return n.name limit 5"}
+提供给我足球运动员奥厄宁·米切尔的5条信息呗？
+match (:ENTITY{name:'奥厄宁·米切尔'})-[*]->(n) where n.name='足球运动员' return n.name limit 5
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+531
+{'Input': '帮我找出3个二级甲等医院，它们分别位于哪里？', 'Output': "match (:ENTITY{name:'二级甲等医院'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'位于'}]->(n) return m.name,n.name limit 3"}
+帮我找出3个二级甲等医院，它们分别位于哪里？
+match (:ENTITY{name:'二级甲等医院'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'位于'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1066
+{'Input': '3层内幻想妖精涵盖的关系种类你都知道哪些？', 'Output': "match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) where p.name <> '关系种类' return distinct p.name"}
+3层内幻想妖精涵盖的关系种类你都知道哪些？
+match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) where p.name <> '关系种类' return distinct p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+176
+{'Input': '你知道菲格尔所涉及的2层内的关系名称都是什么吗？', 'Output': 'match path=(n) return distinct n.name'}
+你知道菲格尔所涉及的2层内的关系名称都是什么吗？
+match path=(n) return distinct n.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+397
+{'Input': '可以告诉我在3层内吕梁经管校涵盖的关系类型吗？', 'Output': "match (:ENTITY{name:'吕梁经管校'})-[*1..3]-(p) return distinct p.name"}
+可以告诉我在3层内吕梁经管校涵盖的关系类型吗？
+match (:ENTITY{name:'吕梁经管校'})-[*1..3]-(p) return distinct p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1066
+{'Input': '3层内幻想妖精涵盖的关系种类你都知道哪些？', 'Output': "match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) return distinct p.name"}
+3层内幻想妖精涵盖的关系种类你都知道哪些？
+match (:ENTITY{name:'幻想妖精'})-[*1..3]-(p) return distinct p.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1399
+{'Input': '我需要巴法络PNT500U3B的全部资料？', 'Output': "match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'巴法络PNT500U3B的全部资料' return distinct x.name"}
+我需要巴法络PNT500U3B的全部资料？
+match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'巴法络PNT500U3B的全部资料' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1854
+{'Input': '我想找6家酒店，他们地址分别是哪里？', 'Output': "match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6"}
+我想找6家酒店，他们地址分别是哪里？
+match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+122
+{'Input': '什么化学物质的分子式为C6H11NO2.HCl？', 'Output': "match ((entities{name:'C6H11NO2.HCl'})-[:Relationship{name:'分子式'}]->(m)) return distinct m.name"}
+什么化学物质的分子式为C6H11NO2.HCl？
+match ((entities{name:'C6H11NO2.HCl'})-[:Relationship{name:'分子式'}]->(m)) return distinct m.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+462
+{'Input': '列举3部生活节目，他们的播出电视都是哪里？', 'Output': "match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3"}
+列举3部生活节目，他们的播出电视都是哪里？
+match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+965
+{'Input': '我需要释智圆的赠清义律师有关的全部信息？', 'Output': "match (n:ENTITY{name:'赠清义律师'})-[*]->(x) where x.name<>'释智圆' return distinct x.name"}
+我需要释智圆的赠清义律师有关的全部信息？
+match (n:ENTITY{name:'赠清义律师'})-[*]->(x) where x.name<>'释智圆' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1365
+{'Input': '提供给我4个武器装备，说一下他们的参战时间。', 'Output': "match (:ENTITY{name:'武器装备'})<-[*]-(m), (m)-[:Relationship{name:'参战时间'}]->(n) return m.name,n.name limit 4"}
+提供给我4个武器装备，说一下他们的参战时间。
+match (:ENTITY{name:'武器装备'})<-[*]-(m), (m)-[:Relationship{name:'参战时间'}]->(n) return m.name,n.name limit 4
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1866
+{'Input': '说出四个品牌的香水？他们的代言人是谁？', 'Output': "match (:ENTITY{name:'香水'})<-[*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4"}
+说出四个品牌的香水？他们的代言人是谁？
+match (:ENTITY{name:'香水'})<-[*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+462
+{'Input': '列举3部生活节目，他们的播出电视都是哪里？', 'Output': "match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3"}
+列举3部生活节目，他们的播出电视都是哪里？
+match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+531
+{'Input': '帮我找出3个二级甲等医院，它们分别位于哪里？', 'Output': "match (:ENTITY{name:'二级甲等医院'})<-[*]-(m), (m)-[:Relationship{name:'医院地址'}]->(n) return m.name,n.name limit 3"}
+帮我找出3个二级甲等医院，它们分别位于哪里？
+match (:ENTITY{name:'二级甲等医院'})<-[*]-(m), (m)-[:Relationship{name:'医院地址'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1127
+{'Input': '请告诉我一个属于辐鳍鱼纲的这个东西的名称还有它的别名。', 'Output': "match (:ENTITY{name:'辐鳍鱼纲'})<-[:Relationship{name:'纲'}]-(h)-[:Relationship{name:'别名'}]->(n) return h.name,n.name union all match (h)-[:Relationship{name:'别名'}]->(n) where h.name <> '辐鳍鱼纲' return h.name,n.name"}
+请告诉我一个属于辐鳍鱼纲的这个东西的名称还有它的别名。
+match (:ENTITY{name:'辐鳍鱼纲'})<-[:Relationship{name:'纲'}]-(h)-[:Relationship{name:'别名'}]->(n) return h.name,n.name union all match (h)-[:Relationship{name:'别名'}]->(n) where h.name <> '辐鳍鱼纲' return h.name,n.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1399
+{'Input': '我需要巴法络PNT500U3B的全部资料？', 'Output': "match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'巴法络PNT500U3B' return distinct x.name"}
+我需要巴法络PNT500U3B的全部资料？
+match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'巴法络PNT500U3B' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m),(m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m),(m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1854
+{'Input': '我想找6家酒店，他们地址分别是哪里？', 'Output': "match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6"}
+我想找6家酒店，他们地址分别是哪里？
+match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1866
+{'Input': '说出四个品牌的香水？他们的代言人是谁？', 'Output': "match (:ENTITY{name:'香水'})<-[*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4"}
+说出四个品牌的香水？他们的代言人是谁？
+match (:ENTITY{name:'香水'})<-[*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+358
+{'Input': '可以为我找出3部广西民族出版社的刊物和他的出刊时间吗？', 'Output': "match (:ENTITY{name:'广西民族出版社'})<-[*]-(m), (m)-[:Relationship{name:'出刊时间'}]->(n) return m.name,n.name limit 3"}
+可以为我找出3部广西民族出版社的刊物和他的出刊时间吗？
+match (:ENTITY{name:'广西民族出版社'})<-[*]-(m), (m)-[:Relationship{name:'出刊时间'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+462
+{'Input': '列举3部生活节目，他们的播出电视都是哪里？', 'Output': "match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3"}
+列举3部生活节目，他们的播出电视都是哪里？
+match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+531
+{'Input': '帮我找出3个二级甲等医院，它们分别位于哪里？', 'Output': "match (:ENTITY{name:'二级甲等医院'})<-[*]-(m), (m)-[:Relationship{name:'医院地址'}]->(n) return m.name,n.name limit 3"}
+帮我找出3个二级甲等医院，它们分别位于哪里？
+match (:ENTITY{name:'二级甲等医院'})<-[*]-(m), (m)-[:Relationship{name:'医院地址'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1399
+{'Input': '我需要巴法络PNT500U3B的全部资料？', 'Output': "match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'巴法络PNT500U3B' return distinct x.name"}
+我需要巴法络PNT500U3B的全部资料？
+match (n:ENTITY{name:'巴法络PNT500U3B'})-[:Relationship*]->(x) where x.name<>'巴法络PNT500U3B' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1866
+{'Input': '说出四个品牌的香水？他们的代言人是谁？', 'Output': "match (:ENTITY{name:'香水'})<-[*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4"}
+说出四个品牌的香水？他们的代言人是谁？
+match (:ENTITY{name:'香水'})<-[*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+462
+{'Input': '列举3部生活节目，他们的播出电视都是哪里？', 'Output': "match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3"}
+列举3部生活节目，他们的播出电视都是哪里？
+match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1866
+{'Input': '说出四个品牌的香水？他们的代言人是谁？', 'Output': "match (:ENTITY{name:'香水'})<-[*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4"}
+说出四个品牌的香水？他们的代言人是谁？
+match (:ENTITY{name:'香水'})<-[*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+399
+{'Input': '整理文化设施的列表给我？我想知道5个行不？', 'Output': "match (:ENTITY{name:'文化设施'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'数量'}]->(n) return m.name,n.name limit 5"}
+整理文化设施的列表给我？我想知道5个行不？
+match (:ENTITY{name:'文化设施'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'数量'}]->(n) return m.name,n.name limit 5
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+462
+{'Input': '列举3部生活节目，他们的播出电视都是哪里？', 'Output': "match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3"}
+列举3部生活节目，他们的播出电视都是哪里？
+match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1854
+{'Input': '我想找6家酒店，他们地址分别是哪里？', 'Output': "match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6"}
+我想找6家酒店，他们地址分别是哪里？
+match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1866
+{'Input': '说出四个品牌的香水？他们的代言人是谁？', 'Output': "match (:ENTITY{name:'香水'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4"}
+说出四个品牌的香水？他们的代言人是谁？
+match (:ENTITY{name:'香水'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1955
+{'Input': '能查到六个车站名称吗?他们的站台数是多少？', 'Output': "match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6"}
+能查到六个车站名称吗?他们的站台数是多少？
+match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+462
+{'Input': '列举3部生活节目，他们的播出电视都是哪里？', 'Output': "match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3"}
+列举3部生活节目，他们的播出电视都是哪里？
+match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+531
+{'Input': '帮我找出3个二级甲等医院，它们分别位于哪里？', 'Output': "match (:ENTITY{name:'二级甲等医院'})<-[*]-(m), (m)-[:Relationship{name:'医院地址'}]->(n) return m.name,n.name limit 3"}
+帮我找出3个二级甲等医院，它们分别位于哪里？
+match (:ENTITY{name:'二级甲等医院'})<-[*]-(m), (m)-[:Relationship{name:'医院地址'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1399
+{'Input': '我需要巴法络PNT500U3B的全部资料？', 'Output': "match (n:ENTITY{name:'巴法络PNT500U3B'})-[*]->(x) where x.name<>'需要' return distinct x.name"}
+我需要巴法络PNT500U3B的全部资料？
+match (n:ENTITY{name:'巴法络PNT500U3B'})-[*]->(x) where x.name<>'需要' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1728
+{'Input': '汇总全部和赤金枫相关信息给我？', 'Output': "match (n:ENTITY{name:'赤金枫'})-[:Relationship*]->(x) where x.name<>'全部' return distinct x.name"}
+汇总全部和赤金枫相关信息给我？
+match (n:ENTITY{name:'赤金枫'})-[:Relationship*]->(x) where x.name<>'全部' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1854
+{'Input': '我想找6家酒店，他们地址分别是哪里？', 'Output': "match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6"}
+我想找6家酒店，他们地址分别是哪里？
+match (:ENTITY{name:'酒店'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'地址'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1860
+{'Input': '找出3个高标清同播的频道，帮我介绍一下他们？', 'Output': "match (:ENTITY{name:'高标清同播'})<-[*]-(m), (m)-[:Relationship{name:'主要奖项'}]->(n) where n.name='主要奖项' return m.name limit 3"}
+找出3个高标清同播的频道，帮我介绍一下他们？
+match (:ENTITY{name:'高标清同播'})<-[*]-(m), (m)-[:Relationship{name:'主要奖项'}]->(n) where n.name='主要奖项' return m.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1955
+{'Input': '能查到六个车站名称吗?他们的站台数是多少？', 'Output': "match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6"}
+能查到六个车站名称吗?他们的站台数是多少？
+match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+462
+{'Input': '列举3部生活节目，他们的播出电视都是哪里？', 'Output': "match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3"}
+列举3部生活节目，他们的播出电视都是哪里？
+match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1004
+{'Input': '为我查询151个经营时间的快捷方法的五条标签信息？', 'Output': "match (:ENTITY{name:'151个经营时间的快捷方法'})-[*]->(q) with q order by q.name return q.name limit 5"}
+为我查询151个经营时间的快捷方法的五条标签信息？
+match (:ENTITY{name:'151个经营时间的快捷方法'})-[*]->(q) with q order by q.name return q.name limit 5
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1399
+{'Input': '我需要巴法络PNT500U3B的全部资料？', 'Output': "match (n:ENTITY{name:'巴法络PNT500U3B'})-[*]->(x) where x.name<>'全部资料' return distinct x.name"}
+我需要巴法络PNT500U3B的全部资料？
+match (n:ENTITY{name:'巴法络PNT500U3B'})-[*]->(x) where x.name<>'全部资料' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1668
+{'Input': '请整理名为0岁拉拉卡的书籍的所有信息？', 'Output': "match (n:ENTITY{name:'0岁拉拉卡'})-[:Relationship*]->(x) where x.name<>'书籍' return distinct x.name"}
+请整理名为0岁拉拉卡的书籍的所有信息？
+match (n:ENTITY{name:'0岁拉拉卡'})-[:Relationship*]->(x) where x.name<>'书籍' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1728
+{'Input': '汇总全部和赤金枫相关信息给我？', 'Output': "match (n:ENTITY{name:'赤金枫'})-[*]->(x) where x.name<>'和赤金枫' return distinct x.name"}
+汇总全部和赤金枫相关信息给我？
+match (n:ENTITY{name:'赤金枫'})-[*]->(x) where x.name<>'和赤金枫' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1955
+{'Input': '能查到六个车站名称吗?他们的站台数是多少？', 'Output': "match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6"}
+能查到六个车站名称吗?他们的站台数是多少？
+match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+462
+{'Input': '列举3部生活节目，他们的播出电视都是哪里？', 'Output': "match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3"}
+列举3部生活节目，他们的播出电视都是哪里？
+match (:ENTITY{name:'生活节目'})<-[*]-(m), (m)-[:Relationship{name:'播出电视'}]->(n) return m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+817
+{'Input': '你知道什么东西的用途是工业冶金吗？', 'Output': "match (x)<-[:Relationship{name:'用途'}]-(m),(m)-[:Relationship{name:'工业冶金'}]->(p) return distinct m.name"}
+你知道什么东西的用途是工业冶金吗？
+match (x)<-[:Relationship{name:'用途'}]-(m),(m)-[:Relationship{name:'工业冶金'}]->(p) return distinct m.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1399
+{'Input': '我需要巴法络PNT500U3B的全部资料？', 'Output': "match (n:ENTITY{name:'巴法络PNT500U3B'})-[*]->(x) where x.name<>'巴法络PNT500U3B' return distinct x.name"}
+我需要巴法络PNT500U3B的全部资料？
+match (n:ENTITY{name:'巴法络PNT500U3B'})-[*]->(x) where x.name<>'巴法络PNT500U3B' return distinct x.name
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1412
+{'Input': '帮我找3道豆腐制作的美食，辅料都有什么？', 'Output': "match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3"}
+帮我找3道豆腐制作的美食，辅料都有什么？
+match (:ENTITY{name:'豆腐'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'辅料'}]->(n) return distinct m.name,n.name limit 3
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1455
+{'Input': '说出10道甜品？它们的主要食材都有哪些？', 'Output': "match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10"}
+说出10道甜品？它们的主要食材都有哪些？
+match (:ENTITY{name:'甜品'})<-[*]-(m), (m)-[:Relationship{name:'主要食材'}]->(n) return m.name,n.name limit 10
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1866
+{'Input': '说出四个品牌的香水？他们的代言人是谁？', 'Output': "match (:ENTITY{name:'香水'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4"}
+说出四个品牌的香水？他们的代言人是谁？
+match (:ENTITY{name:'香水'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'代言人'}]->(n) return m.name,n.name limit 4
+
+--超时--超时--超时--超时--超时--超时--超时--Function execution has timed out.
+1955
+{'Input': '能查到六个车站名称吗?他们的站台数是多少？', 'Output': "match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6"}
+能查到六个车站名称吗?他们的站台数是多少？
+match (:ENTITY{name:'车站'})<-[:Relationship*]-(m), (m)-[:Relationship{name:'站台数'}]->(n) return m.name,n.name limit 6
+

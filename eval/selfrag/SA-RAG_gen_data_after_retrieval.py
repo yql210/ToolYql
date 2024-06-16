@@ -54,23 +54,28 @@ def load_all_files(file_paths):
         final_results[q_id].append(item)
     return final_results
 
-# def format_prompt(input, paragraph=None):
-#   prompt = "### Instruction:\n{0}\n\n### Response:\n".format(input)
-#   if paragraph is not None:
-#     prompt += "[Retrieval]<paragraph>{0}</paragraph>".format(paragraph)\
-#
-#   # print(prompt)
-#   return prompt
-
-# 作为可以根据问题和知识库的信息完美的生成可以通过图灵测试回答的知识库检索型对话专家，回答的受众是对知识库信息出现在回答中要求很高，并且回答精炼。提供的回答高度契合知识库信息，语言流畅，无关信息不要回复。在回答时，请扮演一个儒雅的老者，根据知识库中的信息给出确切回复，回复一段或者一句话。\n问题：+ data['query'] +  \n知识：+ str(data['answer'])
-
 def format_prompt(input, paragraph=None):
-  prompt = "作为可以根据问题和知识库的信息完美的生成可以通过图灵测试回答的知识库检索型对话专家，回答的受众是对知识库信息出现在回答中要求很高，并且回答精炼。提供的回答高度契合知识库信息，语言流畅，无关信息不要回复。在回答时，请扮演一个儒雅的老者，根据知识库中的信息给出确切回复，回复一段或者一句话。\n问题：{0} ".format(input)
+  prompt = "### Instruction:\n{0}\n\n### Response:\n".format(input)
   if paragraph is not None:
-    prompt += "\n知识：{0}。".format(paragraph)\
+    # prompt += "[Retrieval]<paragraph>{0}</paragraph>".format(paragraph)\
+    prompt += "<paragraph>{0}</paragraph>".format(paragraph)\
+    # prompt += "<paragraph></paragraph>"\
+    # prompt += "[Retrieval]<paragraph></paragraph>"\
+  # else:
+  #   prompt += "<paragraph></paragraph>"
 
   # print(prompt)
   return prompt
+
+# 作为可以根据问题和知识库的信息完美的生成可以通过图灵测试回答的知识库检索型对话专家，回答的受众是对知识库信息出现在回答中要求很高，并且回答精炼。提供的回答高度契合知识库信息，语言流畅，无关信息不要回复。在回答时，请扮演一个儒雅的老者，根据知识库中的信息给出确切回复，回复一段或者一句话。\n问题：+ data['query'] +  \n知识：+ str(data['answer'])
+
+# def format_prompt(input, paragraph=None):
+#   prompt = "作为可以根据问题和知识库的信息完美的生成可以通过图灵测试回答的知识库检索型对话专家，回答的受众是对知识库信息出现在回答中要求很高，并且回答精炼。提供的回答高度契合知识库信息，语言流畅，无关信息不要回复。在回答时，请扮演一个儒雅的老者，根据知识库中的信息给出确切回复，回复一段或者一句话。\n问题：{0} ".format(input)
+#   if paragraph is not None:
+#     prompt += "\n知识：{0}。".format(paragraph)\
+#
+#   # print(prompt)
+#   return prompt
 
 
 
@@ -100,11 +105,20 @@ def main():
     # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_4'
     # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_6'
     # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_0_8'
-    model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_alone_spcql'
+    # model_train_path = '0410_sa_rag_1.3b_epcoh_3_data_alone_spcql'
+
+    # model_train_path = '0506_sa_rag_1.3b_epcoh_3_only_output'
+
+    # model_train_path = '0530_sa_rag_1.3b_epcoh_3_no_retrieval'
+    model_train_path = '0530_sa_rag_1.3b_epcoh_3_no_label'
 
     file_test_path = './sa-self-gen-data/' + model_train_path + '.jsonl'
+    file_test_path = './sa-self-data/SArag_test_train.jsonl'
 
-    file_save_path = './sa-self-gen-data-after-retrieval/' + model_train_path + '_after_retrieval.jsonl'
+    # file_save_path = './sa-self-gen-data-after-retrieval/' + model_train_path + '_after_retrieval.jsonl'
+    # file_save_path = './sa-self-gen-data-after-retrieval/0530_' + model_train_path + '_no_retrieval_after_retrieval.jsonl'
+    # file_save_path = './sa-self-gen-data-after-retrieval/0530_' + model_train_path + '_no_retrieval_after_retrieval_1.jsonl'
+    file_save_path = './sa-self-gen-data-after-retrieval/0530_' + model_train_path + '_all_retrieval_after_retrieval_2.jsonl'
 
     model_path = '/data/result/sarag/SArag_all/' + model_train_path
 
@@ -116,9 +130,9 @@ def main():
     # file_test_path = './sa-self-gen-data/chinese-llama-2-7b.jsonl'
     # file_save_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-7b.jsonl'
 
-    model_path = '/data/yuanql/model/modelscope/ChineseAlpacaGroup/chinese-llama-2-13b'
-    file_test_path = './sa-self-gen-data/chinese-llama-2-13b.jsonl'
-    file_save_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-13b.jsonl'
+    # model_path = '/data/yuanql/model/modelscope/ChineseAlpacaGroup/chinese-llama-2-13b'
+    # file_test_path = './sa-self-gen-data/chinese-llama-2-13b.jsonl'
+    # file_save_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-13b.jsonl'
 
 
     model = LLM(model_path, dtype="half")
@@ -145,8 +159,9 @@ def main():
         #     continue
         if data['Retrieval'] == "[Retrieval]":
             prompt = format_prompt(data['instruction'], paragraph=data['answer'])
+            # prompt = format_prompt(data['instruction'], '')
         else:
-            prompt = format_prompt(data['instruction'], '')
+            prompt = format_prompt(data['instruction'])
 
         preds = model.generate([prompt], sampling_params)
 

@@ -68,7 +68,7 @@ def main():
     # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_20.jsonl'
     # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_5.jsonl'
     # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_10.jsonl'
-    # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_3.jsonl'
+    file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_3.jsonl'
     # file_path = './sa-self-gen-data/0405_sa_rag_1.3b_epcoh_40.jsonl'
 
     # 开始测试数据集对其影响
@@ -76,7 +76,7 @@ def main():
     # file_path = './sa-self-gen-data/0410_sa_rag_1.3b_epcoh_3_data_0_4.jsonl'
     # file_path = './sa-self-gen-data/0410_sa_rag_1.3b_epcoh_3_data_0_6.jsonl'
     # file_path = './sa-self-gen-data/0410_sa_rag_1.3b_epcoh_3_data_0_8.jsonl'
-    file_path = './sa-self-gen-data/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql.jsonl'
+    # file_path = './sa-self-gen-data/0410_sa_rag_1.3b_epcoh_3_data_alone_spcql.jsonl'
 
 
     input_datas = load_file(file_path)

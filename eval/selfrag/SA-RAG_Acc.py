@@ -125,21 +125,29 @@ def main():
     # 开始测试
     file_path = './sa-self-gen-data/chinese-llama-2-1.3b.jsonl'
 
-    file_path_train = './sa-self-gen-data/chatglm3-6b.jsonl'
+    # file_path_train = './sa-self-gen-data/chatglm3-6b.jsonl'
 
     # file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-1.3b.jsonl'
 
     # file_path = './sa-self-gen-data/chinese-llama-2-7b.jsonl'
     # file_path = './sa-self-gen-data/chinese-llama-2-13b.jsonl'
 
-    file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-7b.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-7b.jsonl'
     # file_path = './sa-self-gen-data-after-retrieval/chinese-llama-2-13b.jsonl'
 
+    file_path = './sa-self-gen-data-after-retrieval/0506_sa_rag_1.3b_epcoh_3_only_output_after_retrieval.jsonl'
+
+    file_path = './sa-self-gen-data-after-retrieval/0530_sa_rag_1.3b_epcoh_3_no_retrieval_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_sa_rag_1.3b_epcoh_3_no_label_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_0405_sa_rag_1.3b_epcoh_3_no_retrieval_after_retrieval.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_0530_sa_rag_1.3b_epcoh_3_no_label_no_retrieval_after_retrieval.jsonl'
+    # file_path = './sa-self-gen-data-after-retrieval/0530_0530_sa_rag_1.3b_epcoh_3_no_label_no_retrieval_after_retrieval_1.jsonl'
+    file_path = './sa-self-gen-data-after-retrieval/0530_0530_sa_rag_1.3b_epcoh_3_no_label_all_retrieval_after_retrieval_2.jsonl'
 
 
     # input_test_datas = load_file(file_test_path)
     input_datas = load_file(file_path)
-    input_datas_train = load_file(file_path_train)
+    # input_datas_train = load_file(file_path_train)
 
     result_acc = 0.0
     num_all = 0
